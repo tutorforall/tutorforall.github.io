@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TutorForAll</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <!-- Navigation content same as index.html -->
+    </nav>
+
+    <!-- Contact Content -->
+    <div class="pt-24">
+        <!-- Hero Section -->
+        <div class="bg-blue-600 py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <h1 class="text-4xl font-bold text-white text-center">Contact Us</h1>
+                <p class="text-xl text-blue-100 text-center mt-4">Get in Touch with Our Support Team</p>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="max-w-6xl mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Phone -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Call Us</h3>
+                    <p class="text-gray-600 mb-2">24/7 Support Available</p>
+                    <p class="text-blue-600">+1 (555) 123-4567</p>
+                </div>
+
+                <!-- Email -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Email Us</h3>
+                    <p class="text-gray-600 mb-2">Quick Response Time</p>
+                    <p class="text-blue-600">support@tutorforall.com</p>
+                </div>
+
+                <!-- Live Chat -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-comments text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Live Chat</h3>
+                    <p class="text-gray-600 mb-2">Instant Support</p>
+                    <button class="text-white bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700">Start Chat</button>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+                    <form>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                                Full Name *
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                                Email Address *
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="subject">
+                                Subject *
+                            </label>
+                            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="tutoring">Tutoring Services</option>
+                                <option value="assignments">Assignment Help</option>
+                                <option value="technical">Technical Support</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                                Message *
+                            </label>
+                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32" id="message" required></textarea>
+                        </div>
+                        <button class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="submit">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- FAQ Section -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold mb-2">How quickly can I get help with my assignment?</h3>
+                            <p class="text-gray-600">We typically respond within 1-2 hours and can provide urgent assistance when needed.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold mb-2">What subjects do you cover?</h3>
+                            <p class="text-gray-600">We cover a wide range of subjects including Mathematics, Sciences, Programming, Business, and Humanities.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold mb-2">How do I schedule a tutoring session?</h3>
+                            <p class="text-gray-600">You can schedule a session through our online booking system or contact our support team for assistance.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-bold mb-2">What are your payment options?</h3>
+                            <p class="text-gray-600">We accept all major credit cards, PayPal, and bank transfers. Payment plans are available for long-term tutoring.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="bg-gray-100 py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold mb-6">Our Location</h2>
+                    <!-- Placeholder for map -->
+                    <div class="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <p class="text-gray-600">Map Integration Goes Here</p>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="font-bold mb-2">Head Office</h3>
+                        <p class="text-gray-600">123 Education Street</p>
+                        <p class="text-gray-600">Academic District</p>
+                        <p class="text-gray-600">New York, NY 10001</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Contact -->
+        <div class="max-w-6xl mx-auto px-4 py-16">
+            <div class="bg-blue-600 rounded-lg p-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Need Urgent Help?</h2>
+                <p class="text-blue-100 mb-6">Our emergency support team is available 24/7</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="tel:+15551234567" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </a>
+                    <button class="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
+                        <i class="fas fa-comment mr-2"></i>Live Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-800 text-white">
+        <!-- Footer content same as index.html -->
+    </footer>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>
