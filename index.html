@@ -4,164 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TutorForAll - Your Academic Success Partner</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-10">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex space-x-7">
-                    <div>
-                        <a href="index.html" class="flex items-center py-2">
-                            <img src="Learn (1).jpeg" alt="TutorForAll Logo" class="h-16 w-auto object-contain">
-                        </a>
-                    </div>
-                    <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-1">
-                        <a href="index.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Home</a>
-                        <a href="about.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">About</a>
-                        <a href="services.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Services</a>
-                        <a href="experts.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Experts</a>
-                        <a href="reviews.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Reviews</a>
-                        <a href="blog.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Blog</a>
-                        <a href="contact.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Contact</a>
-                    </div>
+    <nav class="bg-white fixed w-full z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <img src="Learn (1).jpeg" alt="TutorForAll Logo" class="h-16 w-auto"/>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button class="outline-none mobile-menu-button">
-                        <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
-                            fill="none" stroke-linecap="round" 
-                            stroke-linejoin="round" stroke-width="2" 
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-slate-800 font-semibold">Home</a>
+                    <a href="about.html" class="text-slate-600 hover:text-slate-800 transition duration-300">About</a>
+                    <a href="services.html" class="text-slate-600 hover:text-slate-800 transition duration-300">Services</a>
+                    <a href="experts.html" class="text-slate-600 hover:text-slate-800 transition duration-300">Experts</a>
+                    <a href="reviews.html" class="text-slate-600 hover:text-slate-800 transition duration-300">Reviews</a>
+                    <a href="blog.html" class="text-slate-600 hover:text-slate-800 transition duration-300">Blog</a>
+                    <a href="contact.html" class="bg-teal-600 text-white px-6 py-2 rounded hover:bg-teal-700 transition duration-300">Contact Us</a>
+                    <a href="https://wa.me/919680212751" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300 flex items-center">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i>
+                        Chat Now
+                    </a>
                 </div>
             </div>
-        </div>
-        <!-- Mobile menu -->
-        <div class="hidden mobile-menu">
-            <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <li><a href="index.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Home</a></li>
-                <li><a href="about.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">About</a></li>
-                <li><a href="services.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Services</a></li>
-                <li><a href="experts.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Experts</a></li>
-                <li><a href="reviews.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Reviews</a></li>
-                <li><a href="blog.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Blog</a></li>
-                <li><a href="contact.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-blue-600 pt-24">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="text-center">
-                <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
-                    Your Academic Success Starts Here
-                </h1>
-                <p class="mt-3 max-w-md mx-auto text-base text-blue-100 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                    Get professional help with assignments, homework, and tutoring sessions from expert tutors.
-                </p>
-                <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-                    <div class="rounded-md shadow">
-                        <a href="services.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                            Get Started
-                        </a>
+    <!-- Hero Section with Background Image -->
+    <div class="pt-20">
+        <div class="relative bg-cover bg-center min-h-screen" style="background-image: url('assets/images/library-study.jpg');">
+            <div class="absolute inset-0 bg-slate-900 bg-opacity-70"></div>
+            <div class="relative max-w-7xl mx-auto px-4 py-32">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-white">
+                        <h1 class="text-5xl font-bold mb-6">Your Path to Academic Excellence</h1>
+                        <p class="text-xl mb-8 text-gray-100">Get personalized tutoring from expert educators. We help you achieve your academic goals with confidence.</p>
+                        <div class="flex space-x-4">
+                            <a href="services.html" class="bg-teal-600 text-white px-8 py-3 rounded font-semibold hover:bg-teal-700 transition duration-300">Get Started</a>
+                            <a href="#how-it-works" class="border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-slate-900 transition duration-300">Learn More</a>
+                        </div>
                     </div>
-                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                        <a href="contact.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 md:py-4 md:text-lg md:px-10">
-                            Contact Us
-                        </a>
+                    <div class="hidden md:block">
+                        <img src="/api/placeholder/600/400" alt="Students Learning" class="rounded shadow-2xl"/>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+
+    <!-- Features Section with Background -->
+    <div class="py-24 relative">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/api/placeholder/1920/1080'); opacity: 0.05;"></div>
+        <div class="max-w-7xl mx-auto px-4 relative">
+            <h2 class="text-4xl font-bold text-center mb-16 text-slate-800">Why Choose TutorForAll?</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-teal-50 w-16 h-16 rounded flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-graduate text-2xl text-teal-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800 text-center">Expert Tutors</h3>
+                    <p class="text-slate-600 text-center">Learn from qualified professionals with proven teaching experience</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-teal-50 w-16 h-16 rounded flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-2xl text-teal-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800 text-center">24/7 Support</h3>
+                    <p class="text-slate-600 text-center">Get help whenever you need it with our round-the-clock support</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-teal-50 w-16 h-16 rounded flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-2xl text-teal-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800 text-center">Guaranteed Results</h3>
+                    <p class="text-slate-600 text-center">We're committed to helping you achieve your academic goals</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <div class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-slate-800">Learning Environment</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="/api/placeholder/600/400" alt="One-on-one tutoring" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500"/>
+                    <div class="absolute inset-0 bg-teal-600 bg-opacity-75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <p class="text-white text-xl font-semibold">One-on-one Tutoring</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="/api/placeholder/600/400" alt="Group study" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500"/>
+                    <div class="absolute inset-0 bg-teal-600 bg-opacity-75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <p class="text-white text-xl font-semibold">Group Study Sessions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="py-24 relative">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/api/placeholder/1920/1080'); opacity: 0.05;"></div>
+        <div class="max-w-7xl mx-auto px-4 relative">
+            <h2 class="text-4xl font-bold text-center mb-16 text-slate-800">See How We Help Students Succeed</h2>
+            <div class="aspect-w-16 aspect-h-9">
+                <div class="w-full h-96 bg-white rounded-lg shadow-lg flex items-center justify-center border border-slate-200">
+                    <p class="text-slate-500">Video Player Placeholder</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action with Background -->
+    <div class="relative py-24">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/api/placeholder/1920/1080');">
+            <div class="absolute inset-0 bg-slate-900 bg-opacity-80"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative">
+            <h2 class="text-4xl font-bold text-white mb-8">Ready to Excel in Your Studies?</h2>
+            <p class="text-xl text-gray-100 mb-12">Join thousands of students who have achieved academic success with TutorForAll</p>
+            <a href="contact.html" class="bg-teal-600 text-white px-8 py-4 rounded font-semibold hover:bg-teal-700 transition duration-300">Start Learning Today</a>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white">
-        <div class="max-w-6xl mx-auto px-4 py-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="mb-5">
-                    <h3 class="text-lg font-semibold mb-4">TutorForAll</h3>
-                    <p class="text-gray-400">Your trusted partner for academic success. Get professional help with assignments, homework, and tutoring.</p>
+    <footer class="bg-slate-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">TutorForAll</h3>
+                    <p class="text-sm">Your trusted partner for academic success.</p>
                 </div>
-                <div class="mb-5">
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="text-gray-400">
-                        <li class="mb-2"><a href="about.html" class="hover:text-white">About Us</a></li>
-                        <li class="mb-2"><a href="services.html" class="hover:text-white">Our Services</a></li>
-                        <li class="mb-2"><a href="experts.html" class="hover:text-white">Our Experts</a></li>
-                        <li class="mb-2"><a href="blog.html" class="hover:text-white">Blog</a></li>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-white">Services</a></li>
+                        <li><a href="experts.html" class="hover:text-white">Our Experts</a></li>
+                        <li><a href="blog.html" class="hover:text-white">Blog</a></li>
                     </ul>
                 </div>
-                <div class="mb-5">
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
-                    <ul class="text-gray-400">
-                        <li class="mb-2">Assignment Help</li>
-                        <li class="mb-2">Homework Help</li>
-                        <li class="mb-2">Online Tutoring</li>
-                        <li class="mb-2">Writing Services</li>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Services</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>Assignment Help</li>
+                        <li>Homework Help</li>
+                        <li>Online Tutoring</li>
+                        <li>Writing Services</li>
                     </ul>
                 </div>
-                <div class="mb-5">
-                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-                    <ul class="text-gray-400">
-                        <li class="mb-2"><i class="fas fa-envelope mr-2"></i> info@tutorforall.com</li>
-                        <li class="mb-2"><i class="fas fa-phone mr-2"></i> +91 9680212751</li>
-                        <li class="mb-2"><i class="fas fa-clock mr-2"></i> 24/7 Support Available</li>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact Info</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>info@tutorforall.com</li>
+                        <li>+91 9680212751</li>
+                        <li>24/7 Support Available</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 TutorForAll. All rights reserved.</p>
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-sm">
+                © 2024 TutorForAll. All rights reserved.
             </div>
         </div>
     </footer>
-
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/919680212751" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full p-3 hover:bg-green-600 shadow-lg z-50 flex items-center" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp text-2xl"></i>
-        <span class="ml-2 hidden md:inline">Chat with us on WhatsApp</span>
-    </a>
-
-    <!-- Navigation and Mobile Menu Scripts -->
-    <script>
-        // Mobile menu toggle
-        const btn = document.querySelector("button.mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-
-        // Navigation highlight
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get current page filename
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            
-            // Get all navigation links
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            // Highlight current page link
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    // Remove default classes
-                    link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
-                    // Add active classes
-                    link.classList.add('text-blue-500');
-                    
-                    // Add bottom border for desktop menu only
-                    if (!link.classList.contains('block')) {
-                        link.classList.add('border-b-4', 'border-blue-500');
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
