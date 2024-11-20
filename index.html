@@ -111,20 +111,27 @@
     </div>
 
     <!-- Video Section -->
-    <div class="py-24 relative">
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/api/placeholder/1920/1080'); opacity: 0.05;"></div>
-        <div class="max-w-7xl mx-auto px-4 relative">
-            <h2 class="text-4xl font-bold text-center mb-16 text-slate-800">See How We Help Students Succeed</h2>
-            <div class="aspect-w-16 aspect-h-9">
-                <iframe class="w-full h-96 rounded-lg shadow-lg" 
-        src="assets/untitled design.mp4" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-</iframe>
-            </div>
+<div class="py-24 relative">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/images/library-interior.jpg'); opacity: 0.05;"></div>
+    <div class="max-w-7xl mx-auto px-4 relative">
+        <h2 class="text-4xl font-bold text-center mb-16 text-slate-800">See How We Help Students Succeed</h2>
+        <div class="max-w-4xl mx-auto rounded-lg shadow-lg overflow-hidden bg-white">
+            <video 
+                class="w-full rounded-lg"
+                controls
+                autoplay
+                muted
+                preload="metadata">
+                <source src="Assets/Untitleddesign.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <!-- Video Description -->
+        <div class="max-w-2xl mx-auto mt-8 text-center">
+            <p class="text-slate-600">Watch how our expert tutors provide personalized guidance and support to help students achieve their academic goals.</p>
         </div>
     </div>
+</div>
 
     <!-- Call to Action with Background -->
     <div class="relative py-24">
