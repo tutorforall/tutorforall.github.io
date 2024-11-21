@@ -4,210 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TutorForAll - Your Academic Success Partner</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-white">
-    <!-- Navigation - Modern and Sleek -->
-    <nav class="bg-white/95 backdrop-blur-md fixed w-full z-50 shadow-sm border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-20">
-                <div class="flex items-center">
-                    <img src="Learn (1).jpeg" alt="TutorForAll Logo" class="h-16 w-auto"/>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-2">
+                            <img src="Learn (1).jpeg" alt="TutorForAll Logo" class="h-16 w-auto object-contain">
+                        </a>
+                    </div>
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="index.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Home</a>
+                        <a href="about.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">About</a>
+                        <a href="services.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Services</a>
+                        <a href="experts.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Experts</a>
+                        <a href="reviews.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Reviews</a>
+                        <a href="blog.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Blog</a>
+                        <a href="contact.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Contact</a>
+                    </div>
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-teal-600 font-semibold">Home</a>
-                    <a href="about.html" class="text-gray-600 hover:text-teal-600 transition duration-300">About</a>
-                    <a href="services.html" class="text-gray-600 hover:text-teal-600 transition duration-300">Services</a>
-                    <a href="experts.html" class="text-gray-600 hover:text-teal-600 transition duration-300">Experts</a>
-                    <a href="reviews.html" class="text-gray-600 hover:text-teal-600 transition duration-300">Reviews</a>
-                    <a href="blog.html" class="text-gray-600 hover:text-teal-600 transition duration-300">Blog</a>
-                    <a href="contact.html" class="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition duration-300">Contact Us</a>
-                    <a href="https://wa.me/919680212751" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 hover:shadow-lg transition duration-300 flex items-center">
-                        <i class="fab fa-whatsapp text-xl mr-2"></i>
-                        Chat Now
-                    </a>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
+                            fill="none" stroke-linecap="round" 
+                            stroke-linejoin="round" stroke-width="2" 
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <li><a href="index.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Home</a></li>
+                <li><a href="about.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">About</a></li>
+                <li><a href="services.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Services</a></li>
+                <li><a href="experts.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Experts</a></li>
+                <li><a href="reviews.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Reviews</a></li>
+                <li><a href="blog.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Blog</a></li>
+                <li><a href="contact.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section - More Dynamic -->
-    <div class="pt-20">
-        <div class="relative bg-gradient-to-r from-slate-900 to-slate-800 overflow-hidden">
-            <div class="absolute inset-0">
-                <img src="Assets/library-study.png" alt="Background" class="w-full h-full object-cover opacity-20"/>
-                <div class="absolute inset-0 bg-gradient-to-r from-teal-600/20 to-slate-900/20 mix-blend-multiply"></div>
-            </div>
-            <div class="relative max-w-7xl mx-auto px-4 py-32">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-white space-y-8">
-                        <h1 class="text-5xl font-bold leading-tight">Your Journey to <span class="text-teal-400">Academic Excellence</span> Starts Here</h1>
-                        <p class="text-xl text-gray-300">Experience personalized tutoring from expert educators who are passionate about your success.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="services.html" class="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition duration-300">Get Started</a>
-                            <a href="#how-it-works" class="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition duration-300">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="hidden md:block">
-                        <img src="Assets/Group study.png" alt="Students Learning" class="rounded-2xl shadow-2xl transform hover:scale-105 transition duration-500"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Features Section - Completely Redesigned -->
-    <div class="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Students Choose TutorForAll</h2>
-                <p class="text-lg text-gray-600">Experience the difference with our comprehensive tutoring solutions</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature Card 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
-                    <div class="bg-gradient-to-br from-teal-500 to-teal-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white">
-                        <i class="fas fa-user-graduate text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Expert Tutors</h3>
-                    <p class="text-gray-600">Learn from highly qualified professionals with extensive teaching experience and proven track records.</p>
-                    <ul class="mt-4 space-y-2">
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check text-teal-500 mr-2"></i>
-                            PhD qualified instructors
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check text-teal-500 mr-2"></i>
-                            Industry experience
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Feature Card 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
-                    <div class="bg-gradient-to-br from-teal-500 to-teal-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white">
-                        <i class="fas fa-clock text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">24/7 Support</h3>
-                    <p class="text-gray-600">Access help whenever you need it with our round-the-clock support system.</p>
-                    <ul class="mt-4 space-y-2">
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check text-teal-500 mr-2"></i>
-                            Instant responses
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check text-teal-500 mr-2"></i>
-                            Flexible scheduling
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Feature Card 3 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
-                    <div class="bg-gradient-to-br from-teal-500 to-teal-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white">
-                        <i class="fas fa-chart-line text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Guaranteed Results</h3>
-                    <p class="text-gray-600">We're committed to your success with our proven learning methodologies.</p>
-                    <ul class="mt-4 space-y-2">
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check text-teal-500 mr-2"></i>
-                            Personalized approach
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check text-teal-500 mr-2"></i>
-                            Track record of success
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Image Gallery Section - Enhanced -->
-    <div class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Learning Environment</h2>
-                <p class="text-lg text-gray-600">Experience personalized learning in comfortable and engaging settings</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="group relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="Assets/one-on-one-tutoring.png" alt="One-on-one tutoring" 
-                         class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="absolute bottom-0 left-0 right-0 p-8">
-                            <h3 class="text-2xl font-bold text-white mb-2">One-on-one Tutoring</h3>
-                            <p class="text-gray-200">Personalized attention for maximum learning effectiveness</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="Assets/one-on-one-tutoring.png" alt="Group study" 
-                         class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="absolute bottom-0 left-0 right-0 p-8">
-                            <h3 class="text-2xl font-bold text-white mb-2">Group Study Sessions</h3>
-                            <p class="text-gray-200">Collaborative learning for enhanced understanding</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- GIF Section - Enhanced -->
-    <div class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">See How We Help Students Succeed</h2>
-                <p class="text-lg text-gray-600">Watch our proven methodology in action</p>
-            </div>
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <img src="Assets/Untitleddesign2v1.gif" 
-                         alt="TutorForAll Learning Process"
-                         class="w-full rounded-lg"
-                         loading="lazy"/>
-                </div>
-                <div class="mt-8 text-center">
-                    <p class="text-gray-600 max-w-2xl mx-auto">Our expert tutors provide personalized guidance and support, ensuring you achieve your academic goals with confidence.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Call to Action - Enhanced -->
-    <div class="relative py-24 overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="Assets/library-study.png" alt="Background" class="w-full h-full object-cover"/>
-            <div class="absolute inset-0 bg-gradient-to-r from-teal-900/90 to-slate-900/90"></div>
-        </div>
-        <div class="max-w-4xl mx-auto px-4 text-center relative">
-            <h2 class="text-4xl font-bold text-white mb-8">Ready to Transform Your Academic Journey?</h2>
-            <p class="text-xl text-gray-300 mb-12">Join thousands of successful students who have achieved their goals with TutorForAll</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="contact.html" class="bg-white text-teal-600 px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition duration-300">Start Learning Today</a>
-                <a href="#features" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition duration-300">Explore Features</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer - Enhanced -->
-    <footer class="bg-slate-900 text-gray-300 py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12">
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-white">TutorForAll</h3>
-                    <p class="text-gray-400">Your trusted partner for academic success and lifelong learning.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-facebook-f"></i>
+    <!-- Hero Section -->
+    <header class="bg-blue-600 pt-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
+                    Your Academic Success Starts Here
+                </h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-blue-100 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                    Get professional help with assignments, homework, and tutoring sessions from expert tutors.
+                </p>
+                <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+                    <div class="rounded-md shadow">
+                        <a href="services.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                            Get Started
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                        <a href="contact.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 md:py-4 md:text-lg md:px-10">
+                            Contact Us
                         </a>
-                        <a href="#
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-6xl mx-auto px-4 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-5">
+                    <h3 class="text-lg font-semibold mb-4">TutorForAll</h3>
+                    <p class="text-gray-400">Your trusted partner for academic success. Get professional help with assignments, homework, and tutoring.</p>
+                </div>
+                <div class="mb-5">
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="text-gray-400">
+                        <li class="mb-2"><a href="about.html" class="hover:text-white">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="hover:text-white">Our Services</a></li>
+                        <li class="mb-2"><a href="experts.html" class="hover:text-white">Our Experts</a></li>
+                        <li class="mb-2"><a href="blog.html" class="hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="mb-5">
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="text-gray-400">
+                        <li class="mb-2">Assignment Help</li>
+                        <li class="mb-2">Homework Help</li>
+                        <li class="mb-2">Online Tutoring</li>
+                        <li class="mb-2">Writing Services</li>
+                    </ul>
+                </div>
+                <div class="mb-5">
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="text-gray-400">
+                        <li class="mb-2"><i class="fas fa-envelope mr-2"></i> info@tutorforall.com</li>
+                        <li class="mb-2"><i class="fas fa-phone mr-2"></i> +91 9680212751</li>
+                        <li class="mb-2"><i class="fas fa-clock mr-2"></i> 24/7 Support Available</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 TutorForAll. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919680212751" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full p-3 hover:bg-green-600 shadow-lg z-50 flex items-center" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="ml-2 hidden md:inline">Chat with us on WhatsApp</span>
+    </a>
+
+    <!-- Navigation and Mobile Menu Scripts -->
+    <script>
+        // Mobile menu toggle
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Navigation highlight
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page filename
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Highlight current page link
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    // Remove default classes
+                    link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
+                    // Add active classes
+                    link.classList.add('text-blue-500');
+                    
+                    // Add bottom border for desktop menu only
+                    if (!link.classList.contains('block')) {
+                        link.classList.add('border-b-4', 'border-blue-500');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
