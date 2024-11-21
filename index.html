@@ -1,34 +1,36 @@
 import React from 'react';
-import { BookOpen, Users, Clock, Award, ArrowRight, ChevronRight } from 'lucide-react';
+import { BookOpen, Users, Clock, ArrowRight } from 'lucide-react';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative bg-blue-600 pt-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 opacity-90"></div>
+      <div className="relative bg-blue-600">
         <div className="absolute inset-0">
-          <img 
-            src="/api/placeholder/1920/1080" 
-            alt="Students studying together" 
-            className="w-full h-full object-cover"
+          <div className="absolute inset-0 bg-blue-900/75 mix-blend-multiply" />
+          <img
+            src="/api/placeholder/1920/600"
+            alt="Students studying"
+            className="h-full w-full object-cover"
           />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Your Journey to Academic Excellence Starts Here
-            </h1>
-            <p className="text-xl text-blue-100 mb-8">
-              Get personalized tutoring, expert guidance, and comprehensive academic support from top professionals.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 flex items-center text-lg">
-                Get Started <ArrowRight className="ml-2 w-5 h-5" />
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700/50 text-lg">
-                Learn More
-              </button>
+        <div className="relative">
+          <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                Your Journey to Academic Excellence Starts Here
+              </h1>
+              <p className="mt-6 text-lg text-gray-200">
+                Get personalized tutoring, expert guidance, and comprehensive academic support from top professionals.
+              </p>
+              <div className="mt-10 flex gap-x-6">
+                <a href="#" className="bg-white px-6 py-3 text-lg font-semibold text-blue-600 rounded-lg hover:bg-gray-100 inline-flex items-center">
+                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+                <a href="#" className="border-2 border-white px-6 py-3 text-lg font-semibold text-white rounded-lg hover:bg-white/10">
+                  Learn More
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -36,23 +38,23 @@ const HomePage = () => {
 
       {/* Stats Section */}
       <div className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="p-6">
-              <p className="text-4xl font-bold text-blue-600">15k+</p>
-              <p className="text-gray-600 mt-2">Students Helped</p>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600">15k+</div>
+              <div className="mt-2 text-base text-gray-600">Students Helped</div>
             </div>
-            <div className="p-6">
-              <p className="text-4xl font-bold text-blue-600">200+</p>
-              <p className="text-gray-600 mt-2">Expert Tutors</p>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600">200+</div>
+              <div className="mt-2 text-base text-gray-600">Expert Tutors</div>
             </div>
-            <div className="p-6">
-              <p className="text-4xl font-bold text-blue-600">50k+</p>
-              <p className="text-gray-600 mt-2">Sessions Completed</p>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600">50k+</div>
+              <div className="mt-2 text-base text-gray-600">Sessions Completed</div>
             </div>
-            <div className="p-6">
-              <p className="text-4xl font-bold text-blue-600">98%</p>
-              <p className="text-gray-600 mt-2">Success Rate</p>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600">98%</div>
+              <div className="mt-2 text-base text-gray-600">Success Rate</div>
             </div>
           </div>
         </div>
@@ -60,79 +62,34 @@ const HomePage = () => {
 
       {/* Services Section */}
       <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600">Comprehensive academic support tailored to your needs</p>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900">Our Services</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Comprehensive academic support tailored to your needs
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <BookOpen className="w-8 h-8 text-blue-600" />,
-                title: "Assignment Help",
-                description: "Get expert assistance with assignments across all subjects"
-              },
-              {
-                icon: <Users className="w-8 h-8 text-blue-600" />,
-                title: "One-on-One Tutoring",
-                description: "Personalized learning sessions with experienced tutors"
-              },
-              {
-                icon: <Clock className="w-8 h-8 text-blue-600" />,
-                title: "24/7 Support",
-                description: "Round-the-clock academic assistance whenever you need it"
-              }
-            ].map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <div className="mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <a href="#" className="text-blue-600 font-semibold flex items-center hover:text-blue-700">
-                  Learn More <ChevronRight className="ml-1 w-5 h-5" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Featured Section with Images */}
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gray-900">Expert Guidance at Every Step</h2>
-              <p className="text-xl text-gray-600">
-                Our experienced tutors provide personalized support to help you achieve your academic goals.
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <BookOpen className="h-8 w-8 text-blue-600" />
+              <h3 className="mt-4 text-xl font-bold">Assignment Help</h3>
+              <p className="mt-2 text-gray-600">
+                Expert assistance with assignments across all subjects
               </p>
-              <ul className="space-y-4">
-                {[
-                  "Tailored learning plans",
-                  "Interactive study sessions",
-                  "Regular progress tracking",
-                  "Comprehensive study materials"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center">
-                    <Award className="w-5 h-5 text-blue-600 mr-2" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
-                Find Your Tutor
-              </button>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="/api/placeholder/300/400" 
-                alt="Students studying" 
-                className="rounded-lg shadow-lg"
-              />
-              <img 
-                src="/api/placeholder/300/400" 
-                alt="Tutoring session" 
-                className="rounded-lg shadow-lg mt-8"
-              />
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <Users className="h-8 w-8 text-blue-600" />
+              <h3 className="mt-4 text-xl font-bold">One-on-One Tutoring</h3>
+              <p className="mt-2 text-gray-600">
+                Personalized learning sessions with experienced tutors
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <Clock className="h-8 w-8 text-blue-600" />
+              <h3 className="mt-4 text-xl font-bold">24/7 Support</h3>
+              <p className="mt-2 text-gray-600">
+                Round-the-clock academic assistance whenever you need it
+              </p>
             </div>
           </div>
         </div>
@@ -140,12 +97,16 @@ const HomePage = () => {
 
       {/* CTA Section */}
       <div className="bg-blue-600 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Excel in Your Studies?</h2>
-          <p className="text-xl text-blue-100 mb-8">Join thousands of successful students who have transformed their academic journey with us</p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50">
-            Get Started Today
-          </button>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white">Ready to Excel in Your Studies?</h2>
+          <p className="mt-4 text-xl text-blue-100">
+            Join thousands of successful students who have transformed their academic journey with us
+          </p>
+          <div className="mt-8">
+            <a href="#" className="bg-white px-8 py-3 text-lg font-semibold text-blue-600 rounded-lg hover:bg-blue-50">
+              Get Started Today
+            </a>
+          </div>
         </div>
       </div>
     </div>
