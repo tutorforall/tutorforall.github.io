@@ -5,140 +5,131 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <div className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+      <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
+            <a href="/" className="flex items-center">
               <img
-                src="/Learn (1).jpeg"
-                alt="TutorForAll Logo"
-                className="h-16 w-auto object-contain"
+                src="/logo.png"
+                alt="Learn & Grow - Tutor For All"
+                className="h-16 w-auto"
               />
+            </a>
+            <div className="hidden md:flex items-center space-x-6">
+              <a href="/" className="text-gray-600 hover:text-blue-600">Home</a>
+              <a href="/about" className="text-gray-600 hover:text-blue-600">About</a>
+              <a href="/services" className="text-gray-600 hover:text-blue-600">Services</a>
+              <a href="/contact" className="text-gray-600 hover:text-blue-600">Contact</a>
             </div>
-            <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-500 hover:text-blue-600">Home</a>
-              <a href="#" className="text-gray-500 hover:text-blue-600">About</a>
-              <a href="#" className="text-gray-500 hover:text-blue-600">Services</a>
-              <a href="#" className="text-gray-500 hover:text-blue-600">Contact</a>
-            </nav>
           </div>
         </div>
-      </div>
+      </nav>
 
       {/* Hero Section */}
-      <div className="relative bg-blue-600 pt-20">
+      <section className="relative pt-20">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-blue-900/75 mix-blend-multiply" />
           <img
             src="/Assets/herosection.png"
-            alt="Students studying"
-            className="h-full w-full object-cover"
+            alt="Students studying together"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-900/60"></div>
         </div>
-        <div className="relative">
-          <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                Your Journey to Academic Excellence Starts Here
-              </h1>
-              <p className="mt-6 text-lg text-gray-200">
-                Get personalized tutoring, expert guidance, and comprehensive academic support from top professionals.
-              </p>
-              <div className="mt-10 flex gap-x-6">
-                <a href="#" className="bg-white px-6 py-3 text-lg font-semibold text-blue-600 rounded-lg hover:bg-gray-100 inline-flex items-center">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-                <a href="#" className="border-2 border-white px-6 py-3 text-lg font-semibold text-white rounded-lg hover:bg-white/10">
-                  Learn More
-                </a>
-              </div>
+        <div className="relative max-w-7xl mx-auto px-4 py-32">
+          <div className="max-w-2xl text-white">
+            <h1 className="text-5xl font-bold mb-6">
+              Your Journey to Academic Excellence Starts Here
+            </h1>
+            <p className="text-xl mb-8 text-gray-100">
+              Get personalized tutoring, expert guidance, and comprehensive academic support from top professionals.
+            </p>
+            <div className="flex gap-4">
+              <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 flex items-center">
+                Get Started <ArrowRight className="ml-2 w-5 h-5" />
+              </button>
+              <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10">
+                Learn More
+              </button>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Stats Section */}
-      <div className="bg-white py-12">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600">15k+</div>
-              <div className="mt-2 text-base text-gray-600">Students Helped</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600">200+</div>
-              <div className="mt-2 text-base text-gray-600">Expert Tutors</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600">50k+</div>
-              <div className="mt-2 text-base text-gray-600">Sessions Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600">98%</div>
-              <div className="mt-2 text-base text-gray-600">Success Rate</div>
-            </div>
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { number: "15k+", label: "Students Helped" },
+              { number: "200+", label: "Expert Tutors" },
+              { number: "50k+", label: "Sessions Completed" },
+              { number: "98%", label: "Success Rate" }
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl font-bold text-blue-600">{stat.number}</div>
+                <div className="mt-2 text-gray-600">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Services Section with Image */}
-      <div className="bg-gray-50 py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center">
+      {/* Services Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">Our Services</h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-xl text-gray-600">
               Comprehensive academic support tailored to your needs
             </p>
           </div>
-          <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 items-center">
-            <div className="space-y-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <BookOpen className="h-8 w-8 text-blue-600" />
-                <h3 className="mt-4 text-xl font-bold">Assignment Help</h3>
-                <p className="mt-2 text-gray-600">
-                  Expert assistance with assignments across all subjects
-                </p>
+                <BookOpen className="w-8 h-8 text-blue-600" />
+                <h3 className="text-xl font-bold mt-4">Assignment Help</h3>
+                <p className="mt-2 text-gray-600">Expert assistance with assignments across all subjects</p>
               </div>
+              
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <Users className="h-8 w-8 text-blue-600" />
-                <h3 className="mt-4 text-xl font-bold">One-on-One Tutoring</h3>
-                <p className="mt-2 text-gray-600">
-                  Personalized learning sessions with experienced tutors
-                </p>
+                <Users className="w-8 h-8 text-blue-600" />
+                <h3 className="text-xl font-bold mt-4">One-on-One Tutoring</h3>
+                <p className="mt-2 text-gray-600">Personalized learning sessions with experienced tutors</p>
               </div>
+              
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <Clock className="h-8 w-8 text-blue-600" />
-                <h3 className="mt-4 text-xl font-bold">24/7 Support</h3>
-                <p className="mt-2 text-gray-600">
-                  Round-the-clock academic assistance whenever you need it
-                </p>
+                <Clock className="w-8 h-8 text-blue-600" />
+                <h3 className="text-xl font-bold mt-4">24/7 Support</h3>
+                <p className="mt-2 text-gray-600">Round-the-clock academic assistance whenever you need it</p>
               </div>
             </div>
+            
             <div className="relative">
               <img
                 src="/Assets/feature.jpeg"
-                alt="Students discussing"
+                alt="Students collaborating"
                 className="rounded-lg shadow-xl w-full"
               />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="bg-blue-600 py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white">Ready to Excel in Your Studies?</h2>
-          <p className="mt-4 text-xl text-blue-100">
+      <section className="bg-blue-600 py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Ready to Excel in Your Studies?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8">
             Join thousands of successful students who have transformed their academic journey with us
           </p>
-          <div className="mt-8">
-            <a href="#" className="bg-white px-8 py-3 text-lg font-semibold text-blue-600 rounded-lg hover:bg-blue-50">
-              Get Started Today
-            </a>
-          </div>
+          <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50">
+            Get Started Today
+          </button>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
