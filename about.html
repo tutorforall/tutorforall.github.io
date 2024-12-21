@@ -336,6 +336,22 @@
     </div>
 </div>
 
+        <!-- Floating Order Button -->
+<button onclick="scrollToForm()" class="fixed bottom-8 bg-yellow-500 left-1/2 transform -translate-x-1/2 bg-orange-500 text-black font-bold py-4 px-8 rounded-full shadow-lg hover:bg-orange-600 transition duration-300 z-50">
+    Order Now
+</button>
+
+<!-- Add this script just before closing body tag -->
+<script>
+
+    function scrollToForm() {
+        const form = document.querySelector('.hero-form');
+        form.scrollIntoView({ behavior: 'smooth' });
+        const firstInput = form.querySelector('input');
+        if (firstInput) firstInput.focus();
+    }
+</script>
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white">
         <div class="max-w-6xl mx-auto px-4 py-10">
