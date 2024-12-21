@@ -383,9 +383,8 @@
 <!-- Add this script just before closing body tag -->
 <script>
     function scrollToForm() {
-        const form = document.querySelector('.hero-form'); // Add class 'hero-form' to your hero section form
+        const form = document.querySelector('.hero-form');
         form.scrollIntoView({ behavior: 'smooth' });
-        // Optional: Add focus to the first input
         const firstInput = form.querySelector('input');
         if (firstInput) firstInput.focus();
     }
