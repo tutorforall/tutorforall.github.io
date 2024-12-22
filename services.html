@@ -424,159 +424,208 @@
         
 
         <!-- Subject Areas -->
-      import React, { useState } from 'react';
-
-const SubjectGrid = () => {
-  const [selectedSubject, setSelectedSubject] = useState('');
-  
-  const scrollToForm = () => {
-    const form = document.querySelector('.hero-form');
-    if (form) {
-      form.scrollIntoView({ behavior: 'smooth' });
-      const subjectInput = form.querySelector('input[placeholder="Type your subject"]');
-      if (subjectInput) {
-        subjectInput.value = selectedSubject;
-        subjectInput.focus();
-      }
-    }
-  };
-
-  const SubjectCard = ({ icon, title, description, subjects }) => (
-    <div className="bg-white p-6 rounded-lg shadow-md text-center">
-      <i className={`fas ${icon} text-blue-600 text-3xl mb-4`}></i>
-      <h4 className="font-bold">{title}</h4>
-      <p className="text-sm text-gray-600 mt-2">{description}</p>
-      <button 
-        onClick={() => {
-          setSelectedSubject(title);
-          scrollToForm();
-        }}
-        className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 text-sm"
-      >
-        Order Now
-      </button>
-    </div>
-  );
-
-  return (
-    <div className="bg-gray-100 py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Subject Areas We Cover</h2>
+<!-- Subject Areas Section -->
+<div class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Subject Areas We Cover</h2>
         
-        {/* Science & Mathematics */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-blue-600 mb-6 text-center">Science & Mathematics</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <SubjectCard
-              icon="fa-calculator"
-              title="Mathematics"
-              description="Calculus, Algebra, Statistics"
-            />
-            <SubjectCard
-              icon="fa-atom"
-              title="Physics"
-              description="Mechanics, Quantum Physics"
-            />
-            <SubjectCard
-              icon="fa-flask"
-              title="Chemistry"
-              description="Organic, Inorganic, Physical"
-            />
-            <SubjectCard
-              icon="fa-dna"
-              title="Biology"
-              description="Molecular, Genetics, Ecology"
-            />
-          </div>
+        <!-- Science & Mathematics -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-blue-600 mb-6 text-center">Science & Mathematics</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Mathematics')">
+                    <i class="fas fa-calculator text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Mathematics</h4>
+                    <p class="text-sm text-gray-600 mt-2">Calculus, Algebra, Statistics</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Physics')">
+                    <i class="fas fa-atom text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Physics</h4>
+                    <p class="text-sm text-gray-600 mt-2">Mechanics, Quantum Physics</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Chemistry')">
+                    <i class="fas fa-flask text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Chemistry</h4>
+                    <p class="text-sm text-gray-600 mt-2">Organic, Inorganic, Physical</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Biology')">
+                    <i class="fas fa-dna text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Biology</h4>
+                    <p class="text-sm text-gray-600 mt-2">Molecular, Genetics, Ecology</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+            </div>
         </div>
 
-        {/* Technology & Engineering */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-blue-600 mb-6 text-center">Technology & Engineering</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <SubjectCard
-              icon="fa-laptop-code"
-              title="Computer Science"
-              description="Programming, Data Structures"
-            />
-            <SubjectCard
-              icon="fa-cogs"
-              title="Mechanical Engineering"
-              description="Thermodynamics, Mechanics"
-            />
-            <SubjectCard
-              icon="fa-microchip"
-              title="Electrical Engineering"
-              description="Circuits, Electronics"
-            />
-            <SubjectCard
-              icon="fa-building"
-              title="Civil Engineering"
-              description="Structures, Materials"
-            />
-          </div>
+        <!-- Technology & Engineering -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-blue-600 mb-6 text-center">Technology & Engineering</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Computer Science')">
+                    <i class="fas fa-laptop-code text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Computer Science</h4>
+                    <p class="text-sm text-gray-600 mt-2">Programming, Data Structures</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Mechanical Engineering')">
+                    <i class="fas fa-cogs text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Mechanical Engineering</h4>
+                    <p class="text-sm text-gray-600 mt-2">Thermodynamics, Mechanics</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Electrical Engineering')">
+                    <i class="fas fa-microchip text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Electrical Engineering</h4>
+                    <p class="text-sm text-gray-600 mt-2">Circuits, Electronics</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Civil Engineering')">
+                    <i class="fas fa-building text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Civil Engineering</h4>
+                    <p class="text-sm text-gray-600 mt-2">Structures, Materials</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+            </div>
         </div>
 
-        {/* Business & Management */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-blue-600 mb-6 text-center">Business & Management</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <SubjectCard
-              icon="fa-chart-line"
-              title="Finance"
-              description="Investment, Banking"
-            />
-            <SubjectCard
-              icon="fa-coins"
-              title="Economics"
-              description="Micro, Macro Economics"
-            />
-            <SubjectCard
-              icon="fa-bullhorn"
-              title="Marketing"
-              description="Digital, Strategic"
-            />
-            <SubjectCard
-              icon="fa-users"
-              title="Management"
-              description="HR, Operations"
-            />
-          </div>
+        <!-- Business & Management -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-blue-600 mb-6 text-center">Business & Management</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Finance')">
+                    <i class="fas fa-chart-line text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Finance</h4>
+                    <p class="text-sm text-gray-600 mt-2">Investment, Banking</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Economics')">
+                    <i class="fas fa-coins text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Economics</h4>
+                    <p class="text-sm text-gray-600 mt-2">Micro, Macro Economics</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Marketing')">
+                    <i class="fas fa-bullhorn text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Marketing</h4>
+                    <p class="text-sm text-gray-600 mt-2">Digital, Strategic</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center subject-card hover:shadow-xl transition-all duration-300" onclick="scrollToOrderForm('Management')">
+                    <i class="fas fa-users text-blue-600 text-3xl mb-4"></i>
+                    <h4 class="font-bold">Management</h4>
+                    <p class="text-sm text-gray-600 mt-2">HR, Operations</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 opacity-0 hover:opacity-100">
+                        Order Now
+                    </button>
+                </div>
+            </div>
         </div>
 
-        {/* Arts & Humanities */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-blue-600 mb-6 text-center">Arts & Humanities</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <SubjectCard
-              icon="fa-book-open"
-              title="Literature"
-              description="English, World Literature"
-            />
-            <SubjectCard
-              icon="fa-landmark"
-              title="History"
-              description="World, Cultural History"
-            />
-            <SubjectCard
-              icon="fa-theater-masks"
-              title="Arts"
-              description="Fine Arts, Visual Arts"
-            />
-            <SubjectCard
-              icon="fa-music"
-              title="Music"
-              description="Theory, Composition"
-            />
-          </div>
-        </div>
-      </div>
+        <!-- Add the same structure for other sections (Arts & Humanities, Social Sciences, etc.) -->
+        
     </div>
-  );
-};
+</div>
 
-export default SubjectGrid;
+<!-- Add this JavaScript at the bottom of your page -->
+<script>
+    function scrollToOrderForm(subject) {
+        // Find the subject input field
+        const subjectInput = document.querySelector('input[placeholder="Type your subject"]');
+        if (subjectInput) {
+            // Set the subject
+            subjectInput.value = subject;
+        }
+        
+        // Scroll to the form
+        const form = document.querySelector('.hero-form');
+        if (form) {
+            form.scrollIntoView({ behavior: 'smooth' });
+            // Add a highlight effect to the form
+            form.classList.add('highlight-form');
+            setTimeout(() => {
+                form.classList.remove('highlight-form');
+            }, 1000);
+        }
+        
+        // Focus on the email field
+        const emailInput = document.querySelector('input[type="email"]');
+        if (emailInput) {
+            emailInput.focus();
+        }
+    }
 
+    // Add hover effects to subject cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const subjectCards = document.querySelectorAll('.subject-card');
+        subjectCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('transform', 'scale-105');
+            });
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('transform', 'scale-105');
+            });
+        });
+    });
+</script>
+
+<style>
+    .subject-card {
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .subject-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .highlight-form {
+        animation: highlight 1s ease-in-out;
+    }
+    
+    @keyframes highlight {
+        0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+        70% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+    
+    /* Smooth appearance of Order Now button */
+    .subject-card button {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(10px);
+    }
+    
+    .subject-card:hover button {
+        transform: translateY(0);
+        opacity: 1 !important;
+    }
+</style>
+
+        
         <!-- How It Works -->
        
             </div>
