@@ -57,6 +57,41 @@
     </div>
 </header>
 
+    <script>
+    // Mobile menu toggle
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
+
+    // Navigation highlight
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get current page filename
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Highlight current page link
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                // Remove default classes
+                link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
+                // Add active classes
+                link.classList.add('text-blue-500');
+                
+                // Add bottom border for desktop menu only
+                if (!link.classList.contains('block')) {
+                    link.classList.add('border-b-4', 'border-blue-500');
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
     <!-- Blog Content -->
     <div class="pt-24">
         <!-- Hero Section -->
@@ -194,44 +229,4 @@
         </div>
     </div>
 
-    <!-- Footer (same as index.html) -->
-    <footer class="bg-gray-800 text-white">
-        <!-- Footer content same as index.html -->
-    </footer>
-
-    <!-- Add this before closing body tag -->
-<script>
-    // Mobile menu toggle
-    const btn = document.querySelector("button.mobile-menu-button");
-    const menu = document.querySelector(".mobile-menu");
-
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-    });
-
-    // Navigation highlight
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get current page filename
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        
-        // Get all navigation links
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Highlight current page link
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                // Remove default classes
-                link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
-                // Add active classes
-                link.classList.add('text-blue-500');
-                
-                // Add bottom border for desktop menu only
-                if (!link.classList.contains('block')) {
-                    link.classList.add('border-b-4', 'border-blue-500');
-                }
-            }
-        });
-    });
-</script>
-</body>
-</html>
+ 
