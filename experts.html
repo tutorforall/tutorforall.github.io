@@ -58,126 +58,148 @@
 </header>
 
 import React, { useState } from 'react';
+import { Search, Star, Award, MessageCircle, ThumbsUp, Clock } from 'lucide-react';
 
-const ExpertCatalogue = () => {
-  const [activeCategory, setActiveCategory] = useState('Mathematics');
-  
-  const expertsByCategory = {
-    'Mathematics': [
-      {
-        name: 'Dr. Sarah Wilson',
-        role: 'Mathematics Expert',
-        expertise: 'Calculus, Linear Algebra, Statistics',
-        experience: '15+ years',
-        completed: '1,200+ projects',
-        rating: 4.9
-      },
-      {
-        name: 'Prof. James Chen',
-        role: 'Mathematics Specialist',
-        expertise: 'Discrete Math, Number Theory',
-        experience: '12+ years',
-        completed: '950+ projects',
-        rating: 4.8
-      }
-    ],
-    'Physics': [
-      {
-        name: 'Dr. Michael Brown',
-        role: 'Physics Expert',
-        expertise: 'Quantum Mechanics, Classical Physics',
-        experience: '18+ years',
-        completed: '1,500+ projects',
-        rating: 4.9
-      },
-      {
-        name: 'Dr. Emily Parker',
-        role: 'Physics Specialist',
-        expertise: 'Thermodynamics, Mechanics',
-        experience: '10+ years',
-        completed: '800+ projects',
-        rating: 4.7
-      }
-    ],
-    'Computer Science': [
-      {
-        name: 'Prof. Alex Kumar',
-        role: 'Programming Expert',
-        expertise: 'Data Structures, Algorithms',
-        experience: '14+ years',
-        completed: '1,300+ projects',
-        rating: 4.9
-      },
-      {
-        name: 'Dr. Lisa Zhang',
-        role: 'CS Specialist',
-        expertise: 'Web Development, Database Systems',
-        experience: '11+ years',
-        completed: '950+ projects',
-        rating: 4.8
-      }
-    ]
-  };
+const ExpertCatalog = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const categories = [
+    { id: 'all', name: 'All Experts' },
+    { id: 'science', name: 'Science & Mathematics' },
+    { id: 'tech', name: 'Technology & Engineering' },
+    { id: 'business', name: 'Business & Economics' },
+    { id: 'humanities', name: 'Arts & Humanities' }
+  ];
+
+  const experts = [
+    {
+      id: 1,
+      name: 'Dr. Sarah Wilson',
+      title: 'Mathematics Expert',
+      category: 'science',
+      image: '/api/placeholder/120/120',
+      rating: 4.9,
+      reviews: 420,
+      completedProjects: 1250,
+      expertise: ['Calculus', 'Linear Algebra', 'Statistics'],
+      education: 'Ph.D. Mathematics, MIT',
+      availability: 'Available Now',
+      responseTime: '< 30 mins'
+    },
+    {
+      id: 2,
+      name: 'Prof. James Chen',
+      title: 'Computer Science Specialist',
+      category: 'tech',
+      image: '/api/placeholder/120/120',
+      rating: 4.8,
+      reviews: 380,
+      completedProjects: 980,
+      expertise: ['Data Structures', 'Algorithms', 'Python'],
+      education: 'Ph.D. Computer Science, Stanford',
+      availability: 'Available Now',
+      responseTime: '< 15 mins'
+    }
+    // Add more experts here
+  ];
+
+  const filteredExperts = experts.filter(expert => {
+    const matchesCategory = selectedCategory === 'all' || expert.category === selectedCategory;
+    const matchesSearch = expert.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         expert.title.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4">
-      {/* Category Buttons */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {Object.keys(expertsByCategory).map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={`px-4 py-2 rounded ${
-              activeCategory === category 
-                ? 'bg-blue-600 text-white' 
-                : 'bg-gray-100 text-gray-700'
-            }`}
-          >
-            {category}
-          </button>
-        ))}
+    <div className="max-w-6xl mx-auto p-6">
+      {/* Search and Filter Section */}
+      <div className="mb-8 bg-white rounded-lg shadow-lg p-6">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div className="relative w-full md:w-96">
+            <input
+              type="text"
+              placeholder="Search experts..."
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+          </div>
+          <div className="flex gap-2 overflow-x-auto w-full md:w-auto">
+            {categories.map(category => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-full whitespace-nowrap ${
+                  selectedCategory === category.id
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* Expert Cards */}
+      {/* Experts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {expertsByCategory[activeCategory].map((expert, index) => (
-          <div key={index} className="bg-white rounded-lg shadow p-6">
-            {/* Expert Image */}
-            <div className="flex items-center mb-4">
-              <img 
-                src="/api/placeholder/80/80" 
-                alt={expert.name}
-                className="w-16 h-16 rounded-full"
-              />
-              <div className="ml-4">
-                <h3 className="font-bold text-lg">{expert.name}</h3>
-                <p className="text-blue-600">{expert.role}</p>
+        {filteredExperts.map(expert => (
+          <div key={expert.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div className="p-6">
+              <div className="flex items-start gap-4">
+                <img
+                  src={expert.image}
+                  alt={expert.name}
+                  className="w-24 h-24 rounded-lg object-cover"
+                />
+                <div>
+                  <h3 className="font-bold text-lg">{expert.name}</h3>
+                  <p className="text-blue-600">{expert.title}</p>
+                  <div className="flex items-center mt-2">
+                    <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                    <span className="ml-1 text-sm font-semibold">{expert.rating}</span>
+                    <span className="ml-1 text-sm text-gray-500">({expert.reviews} reviews)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {expert.expertise.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-4 space-y-2">
+                <div className="flex items-center text-sm">
+                  <Award className="h-4 w-4 text-gray-400 mr-2" />
+                  <span>{expert.education}</span>
+                </div>
+                <div className="flex items-center text-sm">
+                  <ThumbsUp className="h-4 w-4 text-gray-400 mr-2" />
+                  <span>{expert.completedProjects} completed projects</span>
+                </div>
+                <div className="flex items-center text-sm">
+                  <Clock className="h-4 w-4 text-gray-400 mr-2" />
+                  <span>Response time: {expert.responseTime}</span>
+                </div>
+              </div>
+
+              <div className="mt-6 flex gap-4">
+                <button className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                  Hire Now
+                </button>
+                <button className="flex-1 border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition duration-300">
+                  View Profile
+                </button>
               </div>
             </div>
-
-            {/* Expert Details */}
-            <div className="space-y-2 mb-4">
-              <p className="text-gray-600">
-                <span className="font-semibold">Expertise:</span> {expert.expertise}
-              </p>
-              <p className="text-gray-600">
-                <span className="font-semibold">Experience:</span> {expert.experience}
-              </p>
-              <p className="text-gray-600">
-                <span className="font-semibold">Completed:</span> {expert.completed}
-              </p>
-              <p className="text-gray-600">
-                <span className="font-semibold">Rating:</span> {expert.rating}/5.0
-              </p>
-            </div>
-
-            {/* Hire Button */}
-            <button 
-              onClick={() => window.location.href = 'services.html'}
-              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-            >
-              Hire Expert
-            </button>
           </div>
         ))}
       </div>
@@ -185,8 +207,7 @@ const ExpertCatalogue = () => {
   );
 };
 
-export default ExpertCatalogue;
-    
+export default ExpertCatalog;
     
     <!-- Experts Content -->
     <div class="pt-24">
