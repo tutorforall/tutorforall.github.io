@@ -100,6 +100,14 @@
                 }
             }
         });
+
+        // Close menu when clicking on navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    });
     });
 </script>
 </body>
