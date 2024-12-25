@@ -62,8 +62,20 @@
     const btn = document.querySelector("button.mobile-menu-button");
     const menu = document.querySelector(".mobile-menu");
 
+     // Toggle menu with button
     btn.addEventListener("click", () => {
         menu.classList.toggle("hidden");
+    });
+
+    // Close menu when clicking anywhere on the page 
+    document.addEventListener("click", (e) => {
+        const isClickInsideMenu = menu.contains(e.target);
+        const isClickOnButton = btn.contains(e.target);
+        
+        // Only close if click is not on menu or button
+        if (!isClickInsideMenu && !isClickOnButton && !menu.classList.contains("hidden")) {
+            menu.classList.add("hidden");
+        }
     });
 
     // Navigation highlight
@@ -88,11 +100,18 @@
                 }
             }
         });
+
+        // Close menu when clicking on navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    });
     });
 </script>
 </body>
 </html>
-
     
         <!-- Hero Section -->
     
