@@ -57,6 +57,62 @@
     </div>
 </header>
 
+    <script>
+    // Mobile menu toggle
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+     // Toggle menu with button
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
+
+    // Close menu when clicking anywhere on the page 
+    document.addEventListener("click", (e) => {
+        const isClickInsideMenu = menu.contains(e.target);
+        const isClickOnButton = btn.contains(e.target);
+        
+        // Only close if click is not on menu or button
+        if (!isClickInsideMenu && !isClickOnButton && !menu.classList.contains("hidden")) {
+            menu.classList.add("hidden");
+        }
+    });
+
+    // Navigation highlight
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get current page filename
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Highlight current page link
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                // Remove default classes
+                link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
+                // Add active classes
+                link.classList.add('text-blue-500');
+                
+                // Add bottom border for desktop menu only
+                if (!link.classList.contains('block')) {
+                    link.classList.add('border-b-4', 'border-blue-500');
+                }
+            }
+        });
+
+        // Close menu when clicking on navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    });
+    });
+</script>
+</body>
+</html>
+
     <!-- Reviews Content -->
     <div class="pt-24">
         <!-- Hero Section -->
@@ -628,41 +684,7 @@
 </div>
 
  
-<script>
-    // Mobile menu toggle
-    const btn = document.querySelector("button.mobile-menu-button");
-    const menu = document.querySelector(".mobile-menu");
 
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-    });
-
-    // Navigation highlight
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get current page filename
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        
-        // Get all navigation links
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Highlight current page link
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                // Remove default classes
-                link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
-                // Add active classes
-                link.classList.add('text-blue-500');
-                
-                // Add bottom border for desktop menu only
-                if (!link.classList.contains('block')) {
-                    link.classList.add('border-b-4', 'border-blue-500');
-                }
-            }
-        });
-    });
-</script>
-</body>
-</html>
 
 <!-- WhatsApp Button -->
 <a href="https://wa.me/+919680212751" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full p-3 hover:bg-green-600 shadow-lg z-50 flex items-center" target="_blank" rel="noopener noreferrer">
