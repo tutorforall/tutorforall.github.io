@@ -58,41 +58,57 @@
 </header>
 
       <script>
-    // Mobile menu toggle
-    const btn = document.querySelector("button.mobile-menu-button");
-    const menu = document.querySelector(".mobile-menu");
+  // Mobile menu toggle
+const btn = document.querySelector("button.mobile-menu-button");
+const menu = document.querySelector(".mobile-menu");
+const html = document.documentElement;
 
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
+// Toggle menu when button is clicked
+btn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent click from bubbling to document
+    menu.classList.toggle("hidden");
+});
+
+// Close menu when clicking anywhere else on the page
+document.addEventListener("click", (e) => {
+    if (!menu.classList.contains("hidden")) {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.add("hidden");
+        }
+    }
+});
+
+// Close menu when clicking on a nav link
+const mobileNavLinks = menu.querySelectorAll("a");
+mobileNavLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        menu.classList.add("hidden");
     });
+});
 
-    // Navigation highlight
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get current page filename
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        
-        // Get all navigation links
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Highlight current page link
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                // Remove default classes
-                link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
-                // Add active classes
-                link.classList.add('text-blue-500');
-                
-                // Add bottom border for desktop menu only
-                if (!link.classList.contains('block')) {
-                    link.classList.add('border-b-4', 'border-blue-500');
-                }
+// Navigation highlight
+document.addEventListener('DOMContentLoaded', function() {
+    // Get current page filename
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Highlight current page link
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            // Remove default classes
+            link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
+            // Add active classes
+            link.classList.add('text-blue-500');
+            
+            // Add bottom border for desktop menu only
+            if (!link.classList.contains('block')) {
+                link.classList.add('border-b-4', 'border-blue-500');
             }
-        });
+        }
     });
-</script>
-</body>
-</html>
-
+});
     <!-- Hero Section -->
     <div class="bg-gradient-to-r from-blue-600 to-blue-800">
         <div class="max-w-6xl mx-auto px-4 pt-24">
