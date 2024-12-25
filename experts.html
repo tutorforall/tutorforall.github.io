@@ -57,6 +57,209 @@
     </div>
 </header>
 
+import React, { useState } from 'react';
+import { Search } from 'lucide-react';
+
+const ExpertCatalogue = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeCategory, setActiveCategory] = useState('Science & Mathematics');
+  
+  const categories = {
+    "Science & Mathematics": [
+      {
+        name: "Dr. Sarah Wilson",
+        title: "Mathematics Expert",
+        specialization: "Advanced Calculus, Linear Algebra",
+        experience: "15+ years",
+        education: "Ph.D. Mathematics, MIT",
+        rating: 4.9,
+        reviews: 425,
+        completedProjects: 1250
+      },
+      {
+        name: "Prof. James Chen",
+        title: "Physics Specialist",
+        specialization: "Quantum Mechanics, Theoretical Physics",
+        experience: "12+ years",
+        education: "Ph.D. Physics, Stanford",
+        rating: 4.8,
+        reviews: 380,
+        completedProjects: 980
+      }
+    ],
+    "Technology & Programming": [
+      {
+        name: "Alex Kumar",
+        title: "Computer Science Expert",
+        specialization: "Data Structures, Algorithms",
+        experience: "10+ years",
+        education: "M.S. Computer Science, UC Berkeley",
+        rating: 4.9,
+        reviews: 520,
+        completedProjects: 1500
+      },
+      {
+        name: "Emma Davis",
+        title: "Web Development Specialist",
+        specialization: "Full-Stack Development, React",
+        experience: "8+ years",
+        education: "B.S. Computer Science, Georgia Tech",
+        rating: 4.7,
+        reviews: 290,
+        completedProjects: 850
+      }
+    ],
+    "Business & Economics": [
+      {
+        name: "Dr. Michael Brown",
+        title: "Economics Expert",
+        specialization: "Macroeconomics, Economic Policy",
+        experience: "18+ years",
+        education: "Ph.D. Economics, Harvard",
+        rating: 4.9,
+        reviews: 450,
+        completedProjects: 1100
+      },
+      {
+        name: "Lisa Zhang",
+        title: "Finance Specialist",
+        specialization: "Corporate Finance, Investment",
+        experience: "14+ years",
+        education: "MBA, Wharton School",
+        rating: 4.8,
+        reviews: 320,
+        completedProjects: 920
+      }
+    ],
+    "Arts & Humanities": [
+      {
+        name: "Prof. Emily Martinez",
+        title: "Literature Expert",
+        specialization: "Literary Analysis, Creative Writing",
+        experience: "16+ years",
+        education: "Ph.D. English Literature, Yale",
+        rating: 4.9,
+        reviews: 380,
+        completedProjects: 890
+      },
+      {
+        name: "Dr. William Turner",
+        title: "History Specialist",
+        specialization: "World History, Historical Research",
+        experience: "20+ years",
+        education: "Ph.D. History, Columbia",
+        rating: 4.8,
+        reviews: 410,
+        completedProjects: 950
+      }
+    ]
+  };
+
+  const ExpertCard = ({ expert }) => (
+    <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+      <div className="flex items-start mb-4">
+        <img src="/api/placeholder/80/80" alt={expert.name} className="w-16 h-16 rounded-full mr-4"/>
+        <div>
+          <h3 className="font-bold text-lg">{expert.name}</h3>
+          <p className="text-blue-600">{expert.title}</p>
+          <div className="flex text-yellow-400 mt-1">
+            {"★".repeat(Math.floor(expert.rating))}
+            <span className="text-gray-600 ml-1">({expert.rating})</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="space-y-2 mb-4">
+        <div className="flex items-center text-gray-600">
+          <span className="font-semibold mr-2">Specialization:</span>
+          <span>{expert.specialization}</span>
+        </div>
+        <div className="flex items-center text-gray-600">
+          <span className="font-semibold mr-2">Experience:</span>
+          <span>{expert.experience}</span>
+        </div>
+        <div className="flex items-center text-gray-600">
+          <span className="font-semibold mr-2">Education:</span>
+          <span>{expert.education}</span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <div className="text-center p-2 bg-blue-50 rounded">
+          <div className="font-bold text-blue-600">{expert.reviews}</div>
+          <div className="text-sm text-gray-600">Reviews</div>
+        </div>
+        <div className="text-center p-2 bg-blue-50 rounded">
+          <div className="font-bold text-blue-600">{expert.completedProjects}</div>
+          <div className="text-sm text-gray-600">Projects</div>
+        </div>
+        <div className="text-center p-2 bg-blue-50 rounded">
+          <div className="font-bold text-blue-600">{expert.rating}</div>
+          <div className="text-sm text-gray-600">Rating</div>
+        </div>
+      </div>
+
+      <button 
+        onClick={() => window.location.href = 'services.html'} 
+        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300"
+      >
+        Hire Expert
+      </button>
+    </div>
+  );
+
+  return (
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      {/* Search Bar */}
+      <div className="mb-8">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search experts by name or specialization..."
+            className="w-full p-4 pr-12 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Search className="absolute right-4 top-4 text-gray-400" />
+        </div>
+      </div>
+
+      {/* Category Tabs */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {Object.keys(categories).map((category) => (
+          <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`px-4 py-2 rounded-lg text-sm font-medium ${
+              activeCategory === category
+                ? 'bg-blue-600 text-white'
+                : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Expert Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categories[activeCategory]
+          .filter(expert => 
+            expert.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            expert.specialization.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+          .map((expert, index) => (
+            <ExpertCard key={index} expert={expert} />
+          ))
+        }
+      </div>
+    </div>
+  );
+};
+
+export default ExpertCatalogue;
+
+
     
     
     <!-- Experts Content -->
