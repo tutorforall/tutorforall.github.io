@@ -3,485 +3,464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TutorForAll - Your Academic Success Partner</title>
+    <title>Expert Tutors - TutorForAll</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header/Navigation -->
-
+    <!-- Header/Navigation (Keep your existing header) -->
     <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="flex justify-between">
-            <div class="flex space-x-7">
-                <div>
-                    <a href="index.html" class="flex items-center py-2">
-                        <img src="Learn (1).jpeg" alt="TutorForAll Logo" class="h-16 w-auto object-contain">
-                        <span class="ml-2 text-lg font-bold text-gray-800">TutorForAll</span>
-                    </a>
+        <!-- Your existing header content -->
+    </header>
+
+    <div class="pt-20">
+        <!-- Hero Section with Search -->
+        <div class="bg-gradient-to-r from-blue-600 to-blue-800 py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Meet Our Expert Tutors</h1>
+                    <p class="text-xl text-blue-100">Connect with top academic experts from prestigious universities</p>
                 </div>
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Home</a>
-                    <a href="about.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">About</a>
-                    <a href="services.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Services</a>
-                    <a href="experts.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Experts</a>
-                    <a href="reviews.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Reviews</a>
-                    <a href="blog.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Blog</a>
-                    <a href="contact.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Contact</a>
-                </div>
-            </div>
-            <!-- Mobile menu button -->
-            <div class="md:hidden flex items-center">
-                <button class="outline-none mobile-menu-button">
-                    <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
-                        fill="none" stroke-linecap="round" 
-                        stroke-linejoin="round" stroke-width="2" 
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- Mobile menu -->
-    <div class="hidden mobile-menu">
-        <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <li><a href="index.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Home</a></li>
-            <li><a href="about.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">About</a></li>
-            <li><a href="services.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Services</a></li>
-            <li><a href="experts.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Experts</a></li>
-            <li><a href="reviews.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Reviews</a></li>
-            <li><a href="blog.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Blog</a></li>
-            <li><a href="contact.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Contact</a></li>
-        </ul>
-    </div>
-</header>
-
-import React, { useState } from 'react';
-import { Search, GraduationCap, Star, Award, Users, Book } from 'lucide-react';
-
-const ExpertCatalog = () => {
-  const [selectedSubject, setSelectedSubject] = useState('all');
-  
-  const subjects = [
-    { id: 'all', name: 'All Subjects', icon: Book },
-    { id: 'math', name: 'Mathematics', icon: GraduationCap },
-    { id: 'science', name: 'Sciences', icon: Award },
-    { id: 'engineering', name: 'Engineering', icon: Users },
-  ];
-
-  const experts = [
-    {
-      id: 1,
-      name: "Dr. Sarah Wilson",
-      image: "/api/placeholder/400/400",
-      subject: "math",
-      specialization: "Applied Mathematics",
-      rating: 4.9,
-      reviews: 214,
-      completedOrders: 1250,
-      education: "Ph.D. in Mathematics, Stanford University",
-      expertise: ["Calculus", "Linear Algebra", "Statistics"],
-      availability: "Weekdays & Weekends",
-    },
-    {
-      id: 2,
-      name: "Prof. James Chen",
-      image: "/api/placeholder/400/400",
-      subject: "engineering",
-      specialization: "Computer Science",
-      rating: 4.8,
-      reviews: 189,
-      completedOrders: 980,
-      education: "Ph.D. in Computer Science, MIT",
-      expertise: ["Algorithms", "Machine Learning", "Web Development"],
-      availability: "Weekdays",
-    },
-    {
-      id: 3,
-      name: "Dr. Emily Martinez",
-      image: "/api/placeholder/400/400",
-      subject: "science",
-      specialization: "Physics",
-      rating: 4.9,
-      reviews: 167,
-      completedOrders: 890,
-      education: "Ph.D. in Physics, Caltech",
-      expertise: ["Quantum Mechanics", "Thermodynamics", "Electromagnetics"],
-      availability: "Flexible Hours",
-    }
-  ];
-
-  const filteredExperts = selectedSubject === 'all' 
-    ? experts 
-    : experts.filter(expert => expert.subject === selectedSubject);
-
-  return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      {/* Hero Section */}
-      <div className="bg-blue-600 py-16 mb-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold text-white text-center mb-4">
-            Meet Our Expert Tutors
-          </h1>
-          <p className="text-xl text-blue-100 text-center">
-            Learn from the best in their fields with proven track records
-          </p>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Search and Filter Section */}
-        <div className="mb-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="relative w-full md:w-96">
-              <input
-                type="text"
-                placeholder="Search experts..."
-                className="w-full pl-12 pr-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <Search className="absolute left-4 top-3.5 text-gray-400" size={20} />
-            </div>
-            
-            <div className="flex gap-4 w-full md:w-auto overflow-x-auto pb-2">
-              {subjects.map(subject => (
-                <button
-                  key={subject.id}
-                  onClick={() => setSelectedSubject(subject.id)}
-                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full whitespace-nowrap transition-colors
-                    ${selectedSubject === subject.id 
-                      ? 'bg-blue-600 text-white' 
-                      : 'bg-white text-gray-600 hover:bg-gray-100'}`}
-                >
-                  <subject.icon size={18} />
-                  <span>{subject.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Experts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredExperts.map(expert => (
-            <div key={expert.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative">
-                <img 
-                  src={expert.image} 
-                  alt={expert.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-600 shadow-md">
-                  {expert.availability}
-                </div>
-              </div>
-
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">{expert.name}</h3>
-                    <p className="text-blue-600 font-medium">{expert.specialization}</p>
-                  </div>
-                  <div className="flex items-center bg-blue-50 px-3 py-1 rounded-full">
-                    <Star className="text-yellow-400 w-4 h-4 mr-1" />
-                    <span className="font-semibold">{expert.rating}</span>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-center text-gray-600">
-                    <GraduationCap className="w-5 h-5 mr-2" />
-                    <span className="text-sm">{expert.education}</span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {expert.expertise.map((skill, index) => (
-                      <span 
-                        key={index}
-                        className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex justify-between text-sm text-gray-600 pt-4 border-t">
-                    <div>
-                      <span className="font-semibold">{expert.reviews}</span> Reviews
+                
+                <!-- Search Bar -->
+                <div class="max-w-2xl mx-auto">
+                    <div class="relative">
+                        <input type="text" placeholder="Search experts by name, subject, or expertise..." 
+                               class="w-full px-6 py-4 rounded-full shadow-lg text-lg focus:outline-none">
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">
+                            Search
+                        </button>
                     </div>
-                    <div>
-                      <span className="font-semibold">{expert.completedOrders}</span> Completed Orders
-                    </div>
-                  </div>
-
-                  <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                    Book a Session
-                  </button>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ExpertCatalog;
-    
-    <!-- Experts Content -->
-    <div class="pt-24">
-        <!-- Hero Section -->
-        <div class="bg-blue-600 py-16">
-            <div class="max-w-6xl mx-auto px-4">
-                <h1 class="text-4xl font-bold text-white text-center">Meet Our Expert Tutors</h1>
-                <p class="text-xl text-blue-100 text-center mt-4">Learn from the Best in Their Fields</p>
             </div>
         </div>
 
-        <!-- Expert Stats -->
+        <!-- Expert Stats Section -->
         <div class="bg-white py-12 shadow-md">
-            <div class="max-w-6xl mx-auto px-4">
+            <div class="max-w-7xl mx-auto px-4">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div>
-                        <div class="text-4xl font-bold text-blue-600">200+</div>
+                        <div class="text-4xl font-bold text-blue-600">500+</div>
                         <div class="text-gray-600 mt-2">Expert Tutors</div>
                     </div>
                     <div>
                         <div class="text-4xl font-bold text-blue-600">50+</div>
-                        <div class="text-gray-600 mt-2">Subjects Covered</div>
+                        <div class="text-gray-600 mt-2">Subjects</div>
                     </div>
                     <div>
-                        <div class="text-4xl font-bold text-blue-600">15k+</div>
+                        <div class="text-4xl font-bold text-blue-600">25k+</div>
                         <div class="text-gray-600 mt-2">Students Helped</div>
                     </div>
                     <div>
                         <div class="text-4xl font-bold text-blue-600">98%</div>
-                        <div class="text-gray-600 mt-2">Satisfaction Rate</div>
+                        <div class="text-gray-600 mt-2">Success Rate</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Featured Experts -->
-        <div class="max-w-6xl mx-auto px-4 py-16">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Featured Experts</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Expert 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="/api/placeholder/400/300" alt="Dr. Sarah Wilson" class="w-full h-48 object-cover">
+        <!-- Subject Filter Tabs -->
+        <div class="bg-gray-50 py-8">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">All Subjects</button>
+                    <button class="px-6 py-3 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition duration-300">Mathematics</button>
+                    <button class="px-6 py-3 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition duration-300">Sciences</button>
+                    <button class="px-6 py-3 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition duration-300">Engineering</button>
+                    <button class="px-6 py-3 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition duration-300">Business</button>
+                    <button class="px-6 py-3 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition duration-300">Humanities</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expert Cards Grid -->
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Expert Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Expert" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                            Available Now
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Dr. Sarah Wilson</h3>
-                        <p class="text-blue-600 mb-4">Mathematics & Physics Expert</p>
-                        <p class="text-gray-600 mb-4">Ph.D. in Applied Mathematics with 10+ years of teaching experience at prestigious universities.</p>
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <span class="ml-2 text-gray-600">(4.9/5)</span>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Dr. Sarah Wilson</h3>
+                                <p class="text-blue-600">Mathematics Expert</p>
+                            </div>
+                            <div class="flex items-center bg-yellow-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="font-semibold">4.9</span>
+                            </div>
                         </div>
-                        <div class="space-y-2">
-                            <div class="flex items-center">
-                                <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
-                                <span class="text-gray-600">500+ Students Helped</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-blue-600 mr-2"></i>
-                                <span class="text-gray-600">Available Evenings & Weekends</span>
-                            </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600"><i class="fas fa-graduation-cap mr-2"></i>Ph.D. from Stanford University</p>
+                            <p class="text-gray-600"><i class="fas fa-chalkboard-teacher mr-2"></i>10+ Years Teaching Experience</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Calculus</span>
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Linear Algebra</span>
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Statistics</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600 mb-4">
+                            <span><i class="fas fa-book-reader mr-1"></i>1,234 Sessions</span>
+                            <span><i class="fas fa-user-graduate mr-1"></i>856 Students</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button class="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                                Book Session
+                            </button>
+                            <button class="bg-gray-100 text-gray-700 py-2 rounded-lg hover:bg-gray-200 transition duration-300">
+                                View Profile
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Expert 2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="/api/placeholder/400/300" alt="Prof. James Chen" class="w-full h-48 object-cover">
+                <!-- Expert Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Expert" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                            Available Now
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Prof. James Chen</h3>
-                        <p class="text-blue-600 mb-4">Computer Science Specialist</p>
-                        <p class="text-gray-600 mb-4">Masters in Computer Science, certified in multiple programming languages with industry experience.</p>
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star-half-alt text-yellow-400"></i>
-                            <span class="ml-2 text-gray-600">(4.8/5)</span>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Prof. James Chen</h3>
+                                <p class="text-blue-600">Computer Science Expert</p>
+                            </div>
+                            <div class="flex items-center bg-yellow-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="font-semibold">4.8</span>
+                            </div>
                         </div>
-                        <div class="space-y-2">
-                            <div class="flex items-center">
-                                <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
-                                <span class="text-gray-600">300+ Students Helped</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-blue-600 mr-2"></i>
-                                <span class="text-gray-600">Flexible Hours</span>
-                            </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600"><i class="fas fa-graduation-cap mr-2"></i>Ph.D. from MIT</p>
+                            <p class="text-gray-600"><i class="fas fa-chalkboard-teacher mr-2"></i>8+ Years Teaching Experience</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Machine Learning</span>
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Data Structures</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600 mb-4">
+                            <span><i class="fas fa-book-reader mr-1"></i>987 Sessions</span>
+                            <span><i class="fas fa-user-graduate mr-1"></i>645 Students</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button class="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                                Book Session
+                            </button>
+                            <button class="bg-gray-100 text-gray-700 py-2 rounded-lg hover:bg-gray-200 transition duration-300">
+                                View Profile
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Expert 3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="/api/placeholder/400/300" alt="Dr. Emily Martinez" class="w-full h-48 object-cover">
+                <!-- Expert Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Expert" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">
+                            Available Soon
+                        </div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Dr. Emily Martinez</h3>
-                        <p class="text-blue-600 mb-4">Literature & Writing Expert</p>
-                        <p class="text-gray-600 mb-4">Ph.D. in English Literature, published author with extensive teaching experience.</p>
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <span class="ml-2 text-gray-600">(5.0/5)</span>
-                        </div>
-                        <div class="space-y-2">
-                            <div class="flex items-center">
-                                <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
-                                <span class="text-gray-600">400+ Students Helped</span>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Dr. Emily Martinez</h3>
+                                <p class="text-blue-600">Physics Expert</p>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-blue-600 mr-2"></i>
-                                <span class="text-gray-600">Available Daily</span>
+                            <div class="flex items-center bg-yellow-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="font-semibold">4.9</span>
                             </div>
                         </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600"><i class="fas fa-graduation-cap mr-2"></i>Ph.D. from Caltech</p>
+                            <p class="text-gray-600"><i class="fas fa-chalkboard-teacher mr-2"></i>12+ Years Teaching Experience</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Quantum Physics</span>
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Mechanics</span>
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Electromagnetism</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600 mb-4">
+                            <span><i class="fas fa-book-reader mr-1"></i>1,567 Sessions</span>
+                            <span><i class="fas fa-user-graduate mr-1"></i>923 Students</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button class="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                                Book Session
+                            </button>
+                            <button class="bg-gray-100 text-gray-700 py-2 rounded-lg hover:bg-gray-200 transition duration-300">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Load More Experts
+                </button>
+            </div>
+        </div>
+
+        <!-- Join as Expert Section -->
+        <div class="bg-gray-50 py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12">
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-white mb-4">Join Our Expert Team</h2>
+                        <p class="text-xl text-blue-100 mb-8">Share your knowledge and help students succeed while earning competitive compensation</p>
+                        <a href="contact.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                            Apply as Expert
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Expert Categories -->
-        <div class="bg-gray-100 py-16">
-            <div class="max-w-6xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Expert Categories</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-4">STEM Experts</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Mathematics & Statistics</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Physics & Engineering</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Computer Science</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Data Science</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-4">Business Experts</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Finance & Accounting</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Economics</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Marketing</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Management</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-4">Humanities Experts</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Literature & Writing</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>History</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Philosophy</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Psychology</li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- Expert Verification Section -->
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Expert Verification Process</h2>
+                <p class="text-xl text-gray-600">We ensure the highest quality of education through our rigorous verification process</p>
             </div>
-        </div>
-
-        <!-- Become an Expert -->
-        <div class="max-w-6xl mx-auto px-4 py-16">
-            <div class="bg-blue-600 rounded-lg p-8 text-center">
-                <h2 class="text-3xl font-bold text-white mb-4">Join Our Expert Team</h2>
-                <p class="text-blue-100 mb-6">Are you passionate about teaching and helping students succeed? Join our growing community of expert tutors.</p>
-                <a href="contact.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">Apply Now</a>
-            </div>
-        </div>
-    </div>
-
-   <!-- Footer -->
-    <footer class="bg-gray-800 text-white">
-        <div class="max-w-6xl mx-auto px-4 py-10">
+            
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="mb-5">
-                    <h3 class="text-lg font-semibold mb-4">TutorForAll</h3>
-                    <p class="text-gray-400">Your trusted partner for academic success. Get professional help with assignments, homework, and tutoring.</p>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user-check text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Identity Verification</h3>
+                    <p class="text-gray-600">Thorough background checks and identity verification</p>
                 </div>
-                <div class="mb-5">
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="text-gray-400">
-                        <li class="mb-2"><a href="about.html" class="hover:text-white">About Us</a></li>
-                        <li class="mb-2"><a href="services.html" class="hover:text-white">Our Services</a></li>
-                        <li class="mb-2"><a href="experts.html" class="hover:text-white">Our Experts</a></li>
-                        <li class="mb-2"><a href="blog.html" class="hover:text-white">Blog</a></li>
-                    </ul>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Qualification Check</h3>
+                    <p class="text-gray-600">Verification of academic credentials and certifications</p>
                 </div>
-                <div class="mb-5">
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
-                    <ul class="text-gray-400">
-                        <li class="mb-2">Assignment Help</li>
-                        <li class="mb-2">Homework Help</li>
-                        <li class="mb-2">Online Tutoring</li>
-                        <li class="mb-2">Writing Services</li>
-                    </ul>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chalkboard-teacher text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Teaching Assessment</h3>
+                    <p class="text-gray-600">Evaluation of teaching skills and methodology</p>
                 </div>
-                <div class="mb-5">
-                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-                    <ul class="text-gray-400">
-                        <li class="mb-2"><i class="fas fa-envelope mr-2"></i> info@tutorforall.com</li>
-                        <li class="mb-2"><i class="fas fa-phone mr-2"></i> +91 9680212751</li>
-                        <li class="mb-2"><i class="fas fa-clock mr-2"></i> 24/7 Support Available</li>
-                    </ul>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Performance Review</h3>
+                    <p class="text-gray-600">Regular monitoring and student feedback analysis</p>
                 </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 TutorForAll. All rights reserved.</p>
             </div>
         </div>
-    </footer>
 
+        <!-- Why Choose Our Experts -->
+        <div class="bg-gray-50 py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose Our Experts?</h2>
+                    <p class="text-xl text-gray-600">Expert tutoring that sets us apart from the rest</p>
+                </div>
 
-    <!-- Add this before closing body tag -->
-<script>
-    // Mobile menu toggle
-    const btn = document.querySelector("button.mobile-menu-button");
-    const menu = document.querySelector(".mobile-menu");
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-university text-xl text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Top University Graduates</h3>
+                                <p class="text-gray-600">Our experts come from world-renowned institutions ensuring top-quality education</p>
+                            </div>
+                        </div>
+                    </div>
 
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-    });
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-xl text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Flexible Scheduling</h3>
+                                <p class="text-gray-600">Book sessions at your convenience with 24/7 availability</p>
+                            </div>
+                        </div>
+                    </div>
 
-    // Navigation highlight
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get current page filename
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        
-        // Get all navigation links
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Highlight current page link
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                // Remove default classes
-                link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
-                // Add active classes
-                link.classList.add('text-blue-500');
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-xl text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Personalized Approach</h3>
+                                <p class="text-gray-600">Customized learning plans tailored to your specific needs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Success Stories -->
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Student Success Stories</h2>
+                <p class="text-xl text-gray-600">See how our experts have helped students achieve their goals</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/60/60" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Alex Thompson</h4>
+                            <p class="text-gray-600">Computer Science Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The expert guidance helped me ace my programming assignments and land my dream internship at Google."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/60/60" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah Chen</h4>
+                            <p class="text-gray-600">Mathematics Major</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"My tutor's expertise in advanced calculus helped me improve my grades significantly. Highly recommended!"</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/60/60" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael Brown</h4>
+                            <p class="text-gray-600">Physics Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The personalized attention and clear explanations helped me understand complex physics concepts easily."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-gray-50 py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-600">Find answers to common questions about our expert tutoring services</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-4">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="text-lg font-bold mb-2">How do I book a session with an expert?</h3>
+                            <p class="text-gray-600">Simply browse our expert profiles, choose your preferred tutor, and click the "Book Session" button. You can then select your preferred time slot and make the payment.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="text-lg font-bold mb-2">What if I'm not satisfied with my session?</h3>
+                            <p class="text-gray-600">We offer a 100% satisfaction guarantee. If you're not happy with your session, we'll either arrange a free session with another expert or provide a full refund.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="text-lg font-bold mb-2">Can I have a trial session?</h3>
+                            <p class="text-gray-600">Yes, we offer 15-minute trial sessions with our experts so you can ensure it's the right fit before committing to a full session.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking CTA -->
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-12 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Ready to Excel in Your Studies?</h2>
+                <p class="text-xl text-blue-100 mb-8">Book a session with our expert tutors and take the first step towards academic success</p>
+                <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                    Find Your Expert Now
+                </button>
+            </div>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+919680212751" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full p-3 hover:bg-green-600 shadow-lg z-50 flex items-center" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp text-2xl"></i>
+            <span class="ml-2 hidden md:inline">Chat with us</span>
+        </a>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white">
+            <!-- Your existing footer content -->
+        </footer>
+
+        <!-- Scripts -->
+        <script>
+            // Mobile menu toggle
+            const btn = document.querySelector("button.mobile-menu-button");
+            const menu = document.querySelector(".mobile-menu");
+
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+
+            // Navigation highlight
+            document.addEventListener('DOMContentLoaded', function() {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.nav-link');
                 
-                // Add bottom border for desktop menu only
-                if (!link.classList.contains('block')) {
-                    link.classList.add('border-b-4', 'border-blue-500');
-                }
-            }
-        });
-    });
-</script>
-</body>
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.remove('text-gray-500', 'hover:text-blue-500', 'transition', 'duration-300');
+                        link.classList.add('text-blue-500');
+                        
+                        if (!link.classList.contains('block')) {
+                            link.classList.add('border-b-4', 'border-blue-500');
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>
-
-<!-- Add this right before the closing </body> tag in your HTML files -->
-
-<!-- WhatsApp Button -->
-<a href="https://wa.me/+919680212751" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full p-3 hover:bg-green-600 shadow-lg z-50 flex items-center" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-whatsapp text-2xl"></i>
-    <span class="ml-2 hidden md:inline">Chat with us</span>
-</a>
