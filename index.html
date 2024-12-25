@@ -58,27 +58,12 @@
 </header>
 
       <script>
-   <script>
     // Mobile menu toggle
     const btn = document.querySelector("button.mobile-menu-button");
     const menu = document.querySelector(".mobile-menu");
 
-    // Toggle menu with button click
-    btn.addEventListener("click", (e) => {
-        e.stopPropagation(); // Prevent click from bubbling up
+    btn.addEventListener("click", () => {
         menu.classList.toggle("hidden");
-    });
-
-    // Prevent menu clicks from closing the menu
-    menu.addEventListener("click", (e) => {
-        e.stopPropagation();
-    });
-
-    // Close menu when clicking anywhere else on the document
-    document.addEventListener("click", () => {
-        if (!menu.classList.contains("hidden")) {
-            menu.classList.add("hidden");
-        }
     });
 
     // Navigation highlight
