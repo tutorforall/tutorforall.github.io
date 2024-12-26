@@ -3,223 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TutorForAll - Your Academic Success Partner</title>
+    <title>TutorForAll - Application Form</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header/Navigation -->
-
+    <!-- Header -->
     <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="flex justify-between">
-            <div class="flex space-x-7">
-                <div>
-                    <a href="index.html" class="flex items-center py-2">
-                        <img src="Learn (1).jpeg" alt="TutorForAll Logo" class="h-16 w-auto object-contain">
-                        <span class="ml-2 text-lg font-bold text-gray-800">TutorForAll</span>
-                    </a>
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-2">
+                            <img src="Learn (1).jpeg" alt="TutorForAll Logo" class="h-16 w-auto object-contain">
+                            <span class="ml-2 text-lg font-bold text-gray-800">TutorForAll</span>
+                        </a>
+                    </div>
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="index.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Home</a>
+                        <a href="about.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">About</a>
+                        <a href="services.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Services</a>
+                        <a href="experts.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Experts</a>
+                        <a href="reviews.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Reviews</a>
+                        <a href="blog.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Blog</a>
+                        <a href="contact.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Contact</a>
+                    </div>
                 </div>
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Home</a>
-                    <a href="about.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">About</a>
-                    <a href="services.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Services</a>
-                    <a href="experts.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Experts</a>
-                    <a href="reviews.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Reviews</a>
-                    <a href="blog.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Blog</a>
-                    <a href="contact.html" class="nav-link py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Contact</a>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
+                            fill="none" stroke-linecap="round" 
+                            stroke-linejoin="round" stroke-width="2" 
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
-            <!-- Mobile menu button -->
-            <div class="md:hidden flex items-center">
-                <button class="outline-none mobile-menu-button">
-                    <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
-                        fill="none" stroke-linecap="round" 
-                        stroke-linejoin="round" stroke-width="2" 
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <li><a href="index.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Home</a></li>
+                <li><a href="about.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">About</a></li>
+                <li><a href="services.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Services</a></li>
+                <li><a href="experts.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Experts</a></li>
+                <li><a href="reviews.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Reviews</a></li>
+                <li><a href="blog.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Blog</a></li>
+                <li><a href="contact.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Application Form Section -->
+    <div class="min-h-screen bg-gray-50 pt-24">
+        <div class="max-w-2xl mx-auto px-4 py-12">
+            <div class="bg-white rounded-lg shadow-xl p-8">
+                <h2 class="text-2xl font-bold text-gray-800 text-center mb-8">Book Your Academic Service</h2>
+                
+                <!-- Service Selection -->
+                <div class="flex gap-2 mb-8">
+                    <button 
+                        onclick="selectService('assignment')"
+                        class="service-btn flex-1 py-3 px-4 rounded-lg font-semibold transition-all bg-blue-600 text-white"
+                        data-service="assignment"
+                    >
+                        Assignment Help
+                    </button>
+                    <button 
+                        onclick="selectService('homework')"
+                        class="service-btn flex-1 py-3 px-4 rounded-lg font-semibold transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        data-service="homework"
+                    >
+                        Homework Help
+                    </button>
+                    <button 
+                        onclick="selectService('tutoring')"
+                        class="service-btn flex-1 py-3 px-4 rounded-lg font-semibold transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        data-service="tutoring"
+                    >
+                        Online Tutoring
+                    </button>
+                </div>
+
+                <form class="space-y-6">
+                    <!-- Expert Selection (Hidden by default) -->
+                    <div id="expert-selection" class="space-y-2 hidden">
+                        <label class="block text-sm font-medium text-gray-700">Select Expert</label>
+                        <select class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Choose your tutor</option>
+                            <option value="sarah">Dr. Sarah Wilson - Mathematics & Physics</option>
+                            <option value="james">Prof. James Chen - Computer Science</option>
+                            <option value="emily">Dr. Emily Martinez - Literature</option>
+                            <option value="nathan">Nathan White - Nursing</option>
+                            <option value="karen">Karen Betty - Economics</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input
+                            type="email"
+                            placeholder="your.email@example.com"
+                            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                        >
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Subject</label>
+                        <input
+                            type="text"
+                            placeholder="Enter your subject"
+                            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                        >
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Description</label>
+                        <textarea
+                            placeholder="Describe your requirements"
+                            rows="4"
+                            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-700">Deadline</label>
+                            <input
+                                type="date"
+                                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required
+                            >
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-700">Country Code</label>
+                            <select class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="+1">+1 (USA/Canada)</option>
+                                <option value="+44">+44 (UK)</option>
+                                <option value="+91">+91 (India)</option>
+                                <option value="+61">+61 (Australia)</option>
+                                <option value="+64">+64 (New Zealand)</option>
+                                <option value="+27">+27 (South Africa)</option>
+                                <option value="+971">+971 (UAE)</option>
+                                <option value="+65">+65 (Singapore)</option>
+                                <option value="+852">+852 (Hong Kong)</option>
+                                <option value="+353">+353 (Ireland)</option>
+                                <option value="+49">+49 (Germany)</option>
+                                <option value="+33">+33 (France)</option>
+                                <option value="+34">+34 (Spain)</option>
+                                <option value="+39">+39 (Italy)</option>
+                                <option value="+31">+31 (Netherlands)</option>
+                                <option value="+46">+46 (Sweden)</option>
+                                <option value="+47">+47 (Norway)</option>
+                                <option value="+45">+45 (Denmark)</option>
+                                <option value="+358">+358 (Finland)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input
+                            type="tel"
+                            placeholder="Enter your phone number"
+                            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                        >
+                    </div>
+
+                    <div class="flex items-center space-x-2 text-gray-600 cursor-pointer hover:text-blue-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+                        </svg>
+                        <span>Attach Files</span>
+                        <input type="file" class="hidden" multiple>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300"
+                    >
+                        Submit Request
+                    </button>
+                </form>
             </div>
         </div>
     </div>
-    <!-- Mobile menu -->
-    <div class="hidden mobile-menu">
-        <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <li><a href="index.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Home</a></li>
-            <li><a href="about.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">About</a></li>
-            <li><a href="services.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Services</a></li>
-            <li><a href="experts.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Experts</a></li>
-            <li><a href="reviews.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Reviews</a></li>
-            <li><a href="blog.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Blog</a></li>
-            <li><a href="contact.html" class="nav-link block px-2 py-4 text-sm font-semibold text-gray-500 hover:text-blue-500">Contact</a></li>
-        </ul>
-    </div>
-</header>
-               
-        <! service booking page >
 
-  import React, { useState } from 'react';
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+919680212751" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full p-3 hover:bg-green-600 shadow-lg z-50 flex items-center" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="ml-2 hidden md:inline">Chat with us</span>
+    </a>
 
-const ApplicationForm = () => {
-  const [selectedService, setSelectedService] = useState('assignment');
-  const [showExpertDropdown, setShowExpertDropdown] = useState(false);
-  
-  const countryCodes = [
-    { code: "+1", country: "United States/Canada" },
-    { code: "+44", country: "United Kingdom" },
-    { code: "+91", country: "India" },
-    { code: "+61", country: "Australia" },
-    { code: "+64", country: "New Zealand" },
-    { code: "+27", country: "South Africa" },
-    { code: "+971", country: "United Arab Emirates" },
-    { code: "+65", country: "Singapore" },
-    { code: "+60", country: "Malaysia" },
-    { code: "+852", country: "Hong Kong" },
-    { code: "+353", country: "Ireland" },
-    { code: "+49", country: "Germany" },
-    { code: "+33", country: "France" },
-    { code: "+34", country: "Spain" },
-    { code: "+39", country: "Italy" },
-    { code: "+31", country: "Netherlands" },
-    { code: "+46", country: "Sweden" },
-    { code: "+47", country: "Norway" },
-    { code: "+45", country: "Denmark" },
-    { code: "+358", country: "Finland" }
-];
+    <script>
+        // Mobile menu toggle
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
 
-const experts = [
-    { name: "Dr. Sarah Wilson", expertise: "Mathematics & Physics" },
-    { name: "Prof. James Chen", expertise: "Computer Science" },
-    { name: "Dr. Emily Martinez", expertise: "Literature" },
-    { name: "Nathan White", expertise: "Nursing" },
-    { name: "Karen Betty", expertise: "Economics" }
-  ];
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
 
-  const handleServiceChange = (service) => {
-    setSelectedService(service);
-    setShowExpertDropdown(service === 'tutoring');
-  };
+        // Service selection functionality
+        function selectService(service) {
+            // Reset all buttons
+            document.querySelectorAll('.service-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
 
-  return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-2xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">Book Your Academic Service</h2>
-          
-          {/* Service Selection */}
-          <div className="flex gap-2 mb-8">
-            <button 
-              onClick={() => handleServiceChange('assignment')}
-              className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-all ${
-                selectedService === 'assignment' 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              Assignment Help
-            </button>
-            <button 
-              onClick={() => handleServiceChange('homework')}
-              className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-all ${
-                selectedService === 'homework' 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              Homework Help
-            </button>
-            <button 
-              onClick={() => handleServiceChange('tutoring')}
-              className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-all ${
-                selectedService === 'tutoring' 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              Online Tutoring
-            </button>
-          </div>
+            // Highlight selected button
+            const selectedBtn = document.querySelector(`[data-service="${service}"]`);
+            selectedBtn.classList.remove('bg-gray-100', 'text-gray-700');
+            selectedBtn.classList.add('bg-blue-600', 'text-white');
 
-          <form className="space-y-6">
-            {/* Expert Selection for Tutoring */}
-            {showExpertDropdown && (
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">Select Expert</label>
-                <select className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                  <option value="">Choose your tutor</option>
-                  {experts.map((expert, index) => (
-                    <option key={index} value={expert.name}>
-                      {expert.name} - {expert.expertise}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+            // Show/hide expert selection for tutoring
+            const expertSelection = document.getElementById('expert-selection');
+            expertSelection.style.display = service === 'tutoring' ? 'block' : 'none';
+        }
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Email Address</label>
-              <input
-                type="email"
-                placeholder="your.email@example.com"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+        // File attachment functionality
+        const fileAttachment = document.querySelector('.flex.items-center.space-x-2');
+        const fileInput = document.querySelector('input[type="file"]');
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Subject</label>
-              <input
-                type="text"
-                placeholder="Enter your subject"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+        fileAttachment.addEventListener('click', () => {
+            fileInput.click();
+        });
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Description</label>
-              <textarea
-                placeholder="Describe your requirements"
-                rows="4"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">Deadline</label>
-                <input
-                  type="date"
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">Phone</label>
-                <input
-                  type="tel"
-                  placeholder="Your phone number"
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-2 text-gray-600 cursor-pointer hover:text-blue-600">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
-              </svg>
-              <span>Attach Files</span>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300"
-            >
-              Submit Request
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ApplicationForm;
+        fileInput.addEventListener('change', () => {
+            const files = Array.from(fileInput.files);
+            if (files.length) {
+                fileAttachment.querySelector('span').textContent = `${files.length} file(s) selected`;
+            }
+        });
+    </script>
+</body>
+</html>
