@@ -184,14 +184,26 @@
                         >
                     </div>
 
-                    <!-- File Upload -->
-                    <div class="flex items-center space-x-2 text-gray-600 cursor-pointer hover:text-blue-600">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
-                        </svg>
-                        <span>Attach Files</span>
-                        <input type="file" name="attachment" class="hidden" multiple>
-                    </div>
+                    
+                   <!-- File Upload Section -->
+<div class="space-y-2">
+    <label class="block text-sm font-medium text-gray-700">Attachments</label>
+    <div class="flex items-center space-x-2 text-gray-600 cursor-pointer hover:text-blue-600" id="fileAttachmentButton">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+        </svg>
+        <span id="fileLabel">Attach Files</span>
+        <input 
+            type="file" 
+            name="attachment[]" 
+            id="fileInput" 
+            class="hidden" 
+            multiple
+            accept=".pdf,.doc,.docx,.txt,.rtf,.jpg,.jpeg,.png,.zip,.rar"
+        >
+    </div>
+    <div id="fileList" class="text-sm text-gray-600 mt-2"></div>
+</div>
 
                     <!-- Submit Button -->
                     <button
@@ -361,5 +373,43 @@
             }
         });
     </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // File attachment handling
+    const fileInput = document.getElementById('fileInput');
+    const fileLabel = document.getElementById('fileLabel');
+    const fileList = document.getElementById('fileList');
+    const fileAttachmentButton = document.getElementById('fileAttachmentButton');
+
+    if (fileAttachmentButton && fileInput) {
+        fileAttachmentButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', () => {
+            const files = Array.from(fileInput.files);
+            fileLabel.textContent = files.length > 0 ? `${files.length} file(s) selected` : 'Attach Files';
+            
+            // Display list of selected files
+            fileList.innerHTML = '';
+            files.forEach(file => {
+                const fileSize = (file.size / 1024 / 1024).toFixed(2); // Convert to MB
+                const fileItem = document.createElement('div');
+                fileItem.className = 'flex items-center space-x-2 mt-1';
+                fileItem.innerHTML = `
+                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span>${file.name}</span>
+                    <span class="text-gray-400">(${fileSize} MB)</span>
+                `;
+                fileList.appendChild(fileItem);
+            });
+        });
+    }
+});
+</script>
+    
 </body>
 </html>
