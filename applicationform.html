@@ -245,80 +245,141 @@
     </script>
 
  <script>
-    // Add this JavaScript code at the end of your applicationform.html, before the closing body tag
+   // Add this script right before the closing </body> tag in applicationform.html
 
+<script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Get form elements
     const form = document.querySelector('form');
     const fileInput = document.querySelector('input[type="file"]');
-    const fileLabel = document.querySelector('.flex.items-center.space-x-2 span');
+    const fileAttachment = document.querySelector('.flex.items-center.space-x-2');
 
-    // Handle file selection
-    fileInput.addEventListener('change', () => {
-        const files = Array.from(fileInput.files);
-        if (files.length) {
-            fileLabel.textContent = `${files.length} file(s) selected`;
+    // Service selection functionality
+    function selectService(service) {
+        const buttons = document.querySelectorAll('.service-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-blue-600', 'text-white');
+            btn.classList.add('bg-gray-100', 'text-gray-700');
+        });
+
+        const selectedBtn = document.querySelector(`[data-service="${service}"]`);
+        if (selectedBtn) {
+            selectedBtn.classList.remove('bg-gray-100', 'text-gray-700');
+            selectedBtn.classList.add('bg-blue-600', 'text-white');
         }
-    });
 
-    // Handle form submission
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+        const expertSelection = document.getElementById('expert-selection');
+        if (expertSelection) {
+            expertSelection.style.display = service === 'tutoring' ? 'block' : 'none';
+        }
+    }
 
-        // Show loading state
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.textContent;
-        submitButton.textContent = 'Submitting...';
-        submitButton.disabled = true;
+    // File attachment functionality
+    if (fileInput && fileAttachment) {
+        fileAttachment.addEventListener('click', () => {
+            fileInput.click();
+        });
 
-        try {
-            // Create FormData object
-            const formData = new FormData(form);
-
-            // Send form data to FormSpree
-            const response = await fetch('https://formspree.io/f/mwppqaer', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                // Show success message
-                const successMessage = document.createElement('div');
-                successMessage.className = 'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-4';
-                successMessage.innerHTML = `
-                    <strong class="font-bold">Success!</strong>
-                    <span class="block sm:inline"> Your application has been submitted successfully. We'll contact you soon.</span>
-                `;
-                form.insertBefore(successMessage, form.firstChild);
-
-                // Reset form
-                form.reset();
-                fileLabel.textContent = 'Attach Your Files';
-
-                // Scroll to top of form
-                form.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                throw new Error('Submission failed');
+        fileInput.addEventListener('change', () => {
+            const files = Array.from(fileInput.files);
+            const span = fileAttachment.querySelector('span');
+            if (span) {
+                span.textContent = files.length ? `${files.length} file(s) selected` : 'Attach Your Files';
             }
-        } catch (error) {
-            // Show error message
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4';
-            errorMessage.innerHTML = `
-                <strong class="font-bold">Error!</strong>
-                <span class="block sm:inline"> Failed to submit form. Please try again or contact support.</span>
-            `;
-            form.insertBefore(errorMessage, form.firstChild);
-        } finally {
-            // Reset button state
-            submitButton.textContent = originalButtonText;
-            submitButton.disabled = false;
-        }
-    });
+        });
+    }
+
+    // Form submission handler
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Create loading indicator
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            // Remove any existing alerts
+            const existingAlerts = form.querySelectorAll('.alert-message');
+            existingAlerts.forEach(alert => alert.remove());
+
+            try {
+                const formData = new FormData(form);
+                
+                // Add selected service if any
+                const selectedService = document.querySelector('.service-btn.bg-blue-600')?.dataset.service;
+                if (selectedService) {
+                    formData.append('service', selectedService);
+                }
+
+                // Send to FormSpree with your specific form ID
+                const response = await fetch('https://formspree.io/f/mwppqaer', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    const successAlert = document.createElement('div');
+                    successAlert.className = 'alert-message bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4';
+                    successAlert.innerHTML = `
+                        <strong class="font-bold">Success!</strong>
+                        <span class="block sm:inline"> Your application has been submitted successfully. We will contact you soon.</span>
+                    `;
+                    form.insertBefore(successAlert, form.firstChild);
+
+                    // Scroll to top of form
+                    successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Reset form
+                    form.reset();
+                    // Reset file input display
+                    const fileSpan = fileAttachment?.querySelector('span');
+                    if (fileSpan) {
+                        fileSpan.textContent = 'Attach Your Files';
+                    }
+                    // Reset service selection
+                    const serviceButtons = document.querySelectorAll('.service-btn');
+                    serviceButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('bg-gray-100', 'text-gray-700');
+                    });
+                    // Hide expert selection if visible
+                    const expertSelection = document.getElementById('expert-selection');
+                    if (expertSelection) {
+                        expertSelection.style.display = 'none';
+                    }
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                // Show error message
+                const errorAlert = document.createElement('div');
+                errorAlert.className = 'alert-message bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4';
+                errorAlert.innerHTML = `
+                    <strong class="font-bold">Error!</strong>
+                    <span class="block sm:inline"> Failed to submit form. Please try again or contact us directly.</span>
+                `;
+                form.insertBefore(errorAlert, form.firstChild);
+                
+                // Scroll to error message
+                errorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Reset button state
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    // Make selectService function available globally
+    window.selectService = selectService;
 });
-    </script>
+</script>
 </body>
 </html>
     
