@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="styles.css">
 <script src="main.js" defer></script>
 </head>
-<body>
+
     <!-- Header/Navigation -->
 
     <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
@@ -384,6 +384,92 @@
     </div>
 
 export default HeroSection;
+        <form action="https://formspree.io/f/mwppqaer" method="POST" enctype="multipart/form-data" class="space-y-4">
+    <input
+        type="email"
+        name="_replyto"
+        placeholder="Your Email"
+        class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        required
+    >
+
+    <input
+        type="text"
+        name="subject"
+        placeholder="Type your subject"
+        class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        required
+    >
+
+    <textarea
+        name="message"
+        placeholder="Place Your Question Here"
+        class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
+        required
+    ></textarea>
+
+    <div class="grid grid-cols-2 gap-4">
+        <div class="relative">
+            <input
+                type="date"
+                name="deadline"
+                class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+            >
+            <svg class="absolute right-3 top-3 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+        </div>
+
+        <div class="relative">
+            <select name="country_code" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <option value="+1">+1 (USA/Canada)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+91">+91 (India)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+64">+64 (New Zealand)</option>
+                <option value="+27">+27 (South Africa)</option>
+                <option value="+971">+971 (UAE)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="relative">
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+        >
+    </div>
+
+    <div class="space-y-2">
+        <label class="block text-sm font-medium text-gray-700">Attachments</label>
+        <div class="flex items-center space-x-2 text-gray-600 cursor-pointer hover:text-blue-600" id="fileAttachmentButton">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+            </svg>
+            <span id="fileLabel">Attach Files</span>
+            <input 
+                type="file" 
+                name="attachment[]" 
+                id="fileInput" 
+                class="hidden" 
+                multiple
+                accept=".pdf,.doc,.docx,.txt,.rtf,.jpg,.jpeg,.png,.zip,.rar"
+            >
+        </div>
+        <div id="fileList" class="text-sm text-gray-600 mt-2"></div>
+    </div>
+
+    <button
+        type="submit"
+        class="w-full bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-600 transition duration-300"
+    >
+        ORDER NOW
+    </button>
+</form>
 
      
 
@@ -970,7 +1056,7 @@ export default HeroSection;
     >
         <span class="ml-2 hidden md:inline">Chat with us on WhatsApp</span>
     </a>
-</body>
+
 
     <!-- Footer Section -->
 <!-- Footer -->
@@ -1067,3 +1153,77 @@ export default HeroSection;
         </div>
     </div>
 
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // File attachment handling
+    const fileInput = document.getElementById('fileInput');
+    const fileLabel = document.getElementById('fileLabel');
+    const fileList = document.getElementById('fileList');
+    const fileAttachmentButton = document.getElementById('fileAttachmentButton');
+
+    if (fileAttachmentButton && fileInput) {
+        fileAttachmentButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', () => {
+            const files = Array.from(fileInput.files);
+            fileLabel.textContent = files.length > 0 ? `${files.length} file(s) selected` : 'Attach Files';
+            
+            // Display list of selected files
+            fileList.innerHTML = '';
+            files.forEach(file => {
+                const fileSize = (file.size / 1024 / 1024).toFixed(2); // Convert to MB
+                const fileItem = document.createElement('div');
+                fileItem.className = 'flex items-center space-x-2 mt-1';
+                fileItem.innerHTML = `
+                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span>${file.name}</span>
+                    <span class="text-gray-400">(${fileSize} MB)</span>
+                `;
+                fileList.appendChild(fileItem);
+            });
+        });
+    }
+
+    // Form submission handling
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Thank you! Your message has been sent successfully.');
+                    form.reset();
+                    fileLabel.textContent = 'Attach Files';
+                    fileList.innerHTML = '';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert('Oops! There was an error submitting the form. Please try again.');
+            } finally {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
+        });
+    }
+});
+</script>
+
+</body>
