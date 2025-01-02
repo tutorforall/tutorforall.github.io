@@ -1132,6 +1132,7 @@
 
     
   <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     // File attachment handling
     const fileInput = document.getElementById('fileInput');
@@ -1190,21 +1191,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const result = await response.json();
 
-                // Update the success handling in your existing JavaScript
-if (response.ok) {
-    // Show success modal instead of alert
-    const successModal = document.getElementById('successModal');
-    successModal.classList.remove('hidden');
-    successModal.classList.add('flex');
-    
-    // Reset form
-    form.reset();
-    if (fileLabel) fileLabel.textContent = 'Attach Files';
-    if (fileList) fileList.innerHTML = '';
-} else {
-    console.error('Submission error:', result);
-    throw new Error(result.error || 'Form submission failed');
-}
+                if (response.ok) {
+                    // Show success modal
+                    const successModal = document.getElementById('successModal');
+                    successModal.classList.remove('hidden');
+                    successModal.classList.add('flex');
+                    
+                    // Reset form
+                    form.reset();
+                    if (fileLabel) fileLabel.textContent = 'Attach Files';
+                    if (fileList) fileList.innerHTML = '';
+                } else {
+                    console.error('Submission error:', result);
+                    throw new Error(result.error || 'Form submission failed');
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -1216,6 +1215,28 @@ if (response.ok) {
         });
     }
 
+    // Success Modal Functions
+    window.closeSuccessModal = function() {
+        const modal = document.getElementById('successModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', function(e) {
+        const modal = document.getElementById('successModal');
+        if (e.target === modal) {
+            closeSuccessModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeSuccessModal();
+        }
+    });
+
     // Scroll to form functionality
     window.scrollToForm = function() {
         const form = document.querySelector('.hero-form');
@@ -1226,28 +1247,5 @@ if (response.ok) {
         }
     }
 });
-
-// Add these functions to your existing JavaScript
-function closeSuccessModal() {
-    const modal = document.getElementById('successModal');
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-}
-
-// Close modal when clicking outside
-document.addEventListener('click', function(e) {
-    const modal = document.getElementById('successModal');
-    if (e.target === modal) {
-        closeSuccessModal();
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeSuccessModal();
-    }
-});
-      
 </script>
  </body>
