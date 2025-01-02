@@ -1080,6 +1080,57 @@
         </div>
     </div>
 
+
+<!-- form submission Success Modal -->
+<div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md mx-4 relative">
+        <!-- Success Icon -->
+        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-6">
+            <svg class="h-10 w-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+        
+        <!-- Success Message -->
+        <div class="text-center">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Thank You for Choosing Us!</h3>
+            <div class="text-gray-600 space-y-2">
+                <p>Your request has been successfully submitted.</p>
+                <p class="font-semibold text-blue-600">What happens next?</p>
+                <ul class="text-left space-y-2 mt-4 mb-6">
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
+                        </svg>
+                        Our experts are analyzing your requirements
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
+                        </svg>
+                        We're matching you with the best tutor for your subject
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
+                        </svg>
+                        You'll receive an email with complete details and pricing quote
+                    </li>
+                </ul>
+                <p class="text-sm bg-blue-50 p-4 rounded-lg">
+                    <span class="font-semibold">Expected Response Time:</span> Within 30 minutes
+                </p>
+            </div>
+            
+            <!-- Close Button -->
+            <button onclick="closeSuccessModal()" class="mt-6 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                Got it, thanks!
+            </button>
+        </div>
+    </div>
+</div>
+
+    
   <script>
 document.addEventListener('DOMContentLoaded', function() {
     // File attachment handling
@@ -1139,14 +1190,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const result = await response.json();
 
-                if (response.ok) {
-                    alert('Thank you! Your message has been sent successfully.');
-                    form.reset();
-                    if (fileLabel) fileLabel.textContent = 'Attach Files';
-                    if (fileList) fileList.innerHTML = '';
-                } else {
-                    console.error('Submission error:', result);
-                    throw new Error(result.error || 'Form submission failed');
+                // Update the success handling in your existing JavaScript
+if (response.ok) {
+    // Show success modal instead of alert
+    const successModal = document.getElementById('successModal');
+    successModal.classList.remove('hidden');
+    successModal.classList.add('flex');
+    
+    // Reset form
+    form.reset();
+    if (fileLabel) fileLabel.textContent = 'Attach Files';
+    if (fileList) fileList.innerHTML = '';
+} else {
+    console.error('Submission error:', result);
+    throw new Error(result.error || 'Form submission failed');
+}
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -1168,6 +1226,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-</script>
 
-</body>
+// Add these functions to your existing JavaScript
+function closeSuccessModal() {
+    const modal = document.getElementById('successModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('successModal');
+    if (e.target === modal) {
+        closeSuccessModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeSuccessModal();
+    }
+});
+      
+</script>
+ </body>
