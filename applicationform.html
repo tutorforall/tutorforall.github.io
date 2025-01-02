@@ -288,162 +288,197 @@
         <span class="ml-2">Chat with us</span>
     </a>
 
-    <!-- Scripts -->
-  
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize EmailJS
-            emailjs.init("zJhxoml-9JQtMOslz"); // Replace with your public key
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize EmailJS
+    emailjs.init("zJhxoml-9JQtMOslz");
+    console.log('EmailJS initialized');
 
-            console.log('EmailJS initialized:', emailjs);
+    // Mobile menu functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-            // Service selection functionality
-            window.selectService = function(service) {
-                const serviceTypeInput = document.getElementById('service_type');
-                if (serviceTypeInput) {
-                    serviceTypeInput.value = service;
-                }
-
-                const buttons = document.querySelectorAll('.service-btn');
-                buttons.forEach(btn => {
-                    btn.classList.remove('bg-blue-600', 'text-white');
-                    btn.classList.add('bg-gray-100', 'text-gray-700');
-                });
-
-                const selectedBtn = document.querySelector(`[data-service="${service}"]`);
-                if (selectedBtn) {
-                    selectedBtn.classList.remove('bg-gray-100', 'text-gray-700');
-                    selectedBtn.classList.add('bg-blue-600', 'text-white');
-                }
-
-                const expertSelection = document.getElementById('expert-selection');
-                if (expertSelection) {
-                    expertSelection.style.display = service === 'tutoring' ? 'block' : 'none';
-                }
-            };
-
-            // File attachment handling
-            const fileInput = document.getElementById('fileInput');
-            const fileLabel = document.getElementById('fileLabel');
-            const fileList = document.getElementById('fileList');
-            const fileAttachmentButton = document.getElementById('fileAttachmentButton');
-
-            if (fileAttachmentButton && fileInput) {
-                fileAttachmentButton.addEventListener('click', () => {
-                    fileInput.click();
-                });
-
-                fileInput.addEventListener('change', () => {
-                    const files = Array.from(fileInput.files);
-                    fileLabel.textContent = files.length > 0 ? `${files.length} file(s) selected` : 'Attach Files';
-                    
-                    fileList.innerHTML = '';
-                    files.forEach(file => {
-                        const fileSize = (file.size / 1024 / 1024).toFixed(2);
-                        const fileItem = document.createElement('div');
-                        fileItem.className = 'flex items-center space-x-2 mt-1';
-                        fileItem.innerHTML = `
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                            <span>${file.name}</span>
-                            <span class="text-gray-400">(${fileSize} MB)</span>
-                        `;
-                        fileList.appendChild(fileItem);
-                    });
-                });
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const isClickInsideMenu = mobileMenu.contains(e.target);
+            const isClickOnButton = mobileMenuBtn.contains(e.target);
+            
+            if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
             }
+        });
+    }
 
-            // Form submission handling
-            const form = document.getElementById('applicationForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const submitButton = form.querySelector('button[type="submit"]');
-                    submitButton.textContent = 'Sending...';
-                    submitButton.disabled = true;
+    // Service selection functionality
+    window.selectService = function(service) {
+        const serviceTypeInput = document.getElementById('service_type');
+        if (serviceTypeInput) {
+            serviceTypeInput.value = service;
+        }
 
-                    // Prepare form data
-                    const formData = new FormData(form);
-                    
-                    // Handle file attachments
-                    const fileInput = document.getElementById('fileInput');
-                    const files = Array.from(fileInput.files);
-                    const fileNames = files.map(file => file.name).join(', ');
+        const buttons = document.querySelectorAll('.service-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-blue-600', 'text-white');
+            btn.classList.add('bg-gray-100', 'text-gray-700');
+        });
 
-                    // Prepare template parameters
-                    const templateParams = {
-                        user_email: formData.get('user_email'),
-                        subject: formData.get('subject'),
-                        message: formData.get('message'),
-                        deadline: formData.get('deadline'),
-                        phone: `${formData.get('country_code')} ${formData.get('phone')}`,
-                        expert: formData.get('expert') || 'Not Selected',
-                        service_type: formData.get('service_type'),
-                        attachments: fileNames || 'No files attached',
-                        additional_details: `
-                            Service Type: ${formData.get('service_type')}
-                            Expert: ${formData.get('expert') || 'Not Selected'}
-                            Deadline: ${formData.get('deadline')}
-                            Contact: ${formData.get('country_code')} ${formData.get('phone')}
-                            Files: ${fileNames || 'No files attached'}
-                        `
-                    };
+        const selectedBtn = document.querySelector(`[data-service="${service}"]`);
+        if (selectedBtn) {
+            selectedBtn.classList.remove('bg-gray-100', 'text-gray-700');
+            selectedBtn.classList.add('bg-blue-600', 'text-white');
+        }
 
-                    // Send email using EmailJS
-                    emailjs.send(
-                        'service_hjwnn2m', // Replace with your EmailJS service ID
-                        'template_ncsm5yz', // Replace with your EmailJS template ID
-                        templateParams
-                    )
-                    .then(() => {
-                        // Show success modal
-                        const successModal = document.getElementById('successModal');
-                        successModal.classList.remove('hidden');
-                        successModal.classList.add('flex');
-                        
-                        // Reset form
-                        form.reset();
-                        if (fileLabel) fileLabel.textContent = 'Attach Files';
-                        if (fileList) fileList.innerHTML = '';
+        const expertSelection = document.getElementById('expert-selection');
+        if (expertSelection) {
+            expertSelection.style.display = service === 'tutoring' ? 'block' : 'none';
+        }
+    };
 
-                        // Reset service selection
-                        selectService('assignment');
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                        alert('Oops! There was an error submitting the form. Please try again.');
-                    })
-                    .finally(() => {
-                        submitButton.textContent = 'ORDER NOW';
-                        submitButton.disabled = false;
-                    });
-                });
-            }
+    // File attachment handling
+    const fileInput = document.getElementById('fileInput');
+    const fileLabel = document.getElementById('fileLabel');
+    const fileList = document.getElementById('fileList');
+    const fileAttachmentButton = document.getElementById('fileAttachmentButton');
 
-            // Success Modal Functions
-            window.closeSuccessModal = function() {
-                const modal = document.getElementById('successModal');
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
+    if (fileAttachmentButton && fileInput) {
+        fileAttachmentButton.addEventListener('click', () => {
+            fileInput.click();
+        });
 
-            // Close modal when clicking outside
-            document.addEventListener('click', function(e) {
-                const modal = document.getElementById('successModal');
-                if (e.target === modal) {
-                    closeSuccessModal();
-                }
-            });
-
-            // Close modal with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeSuccessModal();
-                }
+        fileInput.addEventListener('change', () => {
+            const files = Array.from(fileInput.files);
+            fileLabel.textContent = files.length > 0 ? `${files.length} file(s) selected` : 'Attach Files';
+            
+            fileList.innerHTML = '';
+            files.forEach(file => {
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                const fileItem = document.createElement('div');
+                fileItem.className = 'flex items-center space-x-2 mt-1';
+                fileItem.innerHTML = `
+                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span>${file.name}</span>
+                    <span class="text-gray-400">(${fileSize} MB)</span>
+                `;
+                fileList.appendChild(fileItem);
             });
         });
-    </script>
-</body>
-</html>
+    }
+
+    // Form submission handling
+    const form = document.getElementById('applicationForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            // Get form values
+            const email = form.querySelector('input[name="user_email"]').value;
+            const subject = form.querySelector('input[name="subject"]').value;
+            const message = form.querySelector('textarea[name="message"]').value;
+            const deadline = form.querySelector('input[name="deadline"]').value;
+            const countryCode = form.querySelector('select[name="country_code"]').value;
+            const phone = form.querySelector('input[name="phone"]').value;
+            const serviceType = document.getElementById('service_type').value;
+            const expert = form.querySelector('select[name="expert"]') ? 
+                          form.querySelector('select[name="expert"]').value : 'Not Selected';
+
+            // Template parameters for main notification email
+            const templateParams = {
+                from_name: email,
+                subject: subject,
+                message: message,
+                deadline: deadline,
+                phone: `${countryCode} ${phone}`,
+                service_type: serviceType,
+                expert: expert,
+                to_email: "info@tutorforall.com"
+            };
+
+            // Template parameters for auto-reply email
+            const autoReplyParams = {
+                to_email: email,
+                subject: subject,
+                service_type: serviceType,
+                deadline: deadline,
+                from_name: "TutorForAll Support"
+            };
+
+            // Send both emails
+            Promise.all([
+                // Send notification to admin
+                emailjs.send("service_hjwnn2m", "template_ncsm5yz", templateParams),
+                // Send auto-reply to user
+                emailjs.send("service_hjwnn2m", "template_9bvo7gj", autoReplyParams)
+            ])
+            .then(function(responses) {
+                console.log("SUCCESS!", responses);
+                
+                // Show success modal
+                const successModal = document.getElementById('successModal');
+                successModal.classList.remove('hidden');
+                successModal.classList.add('flex');
+                
+                // Reset form
+                form.reset();
+                if (fileLabel) fileLabel.textContent = 'Attach Files';
+                if (fileList) fileList.innerHTML = '';
+
+                // Reset service selection
+                selectService('assignment');
+            })
+            .catch(function(error) {
+                console.log("FAILED...", error);
+                alert('There was an error sending your message. Please try again.');
+            })
+            .finally(function() {
+                submitButton.textContent = 'ORDER NOW';
+                submitButton.disabled = false;
+            });
+        });
+    }
+
+    // Success Modal Functions
+    window.closeSuccessModal = function() {
+        const modal = document.getElementById('successModal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', function(e) {
+        const modal = document.getElementById('successModal');
+        if (modal && e.target === modal) {
+            closeSuccessModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeSuccessModal();
+        }
+    });
+
+    // WhatsApp button functionality (if needed)
+    const whatsappButton = document.querySelector('.whatsapp-button');
+    if (whatsappButton) {
+        whatsappButton.addEventListener('click', function(e) {
+            window.open('https://wa.me/919680212751', '_blank');
+        });
+    }
+});
+</script>
+
+    
