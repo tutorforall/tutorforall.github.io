@@ -393,34 +393,35 @@ document.addEventListener('DOMContentLoaded', function() {
             const expert = form.querySelector('select[name="expert"]') ? 
                           form.querySelector('select[name="expert"]').value : 'Not Selected';
 
-            // Template parameters for main notification email
-            const templateParams = {
-                from_name: email,
-                subject: subject,
-                message: message,
-                deadline: deadline,
-                phone: `${countryCode} ${phone}`,
-                service_type: serviceType,
-                expert: expert,
-                to_email: "info@tutorforall.com"
-            };
+           // Template parameters for main notification email
+const templateParams = {
+    from_name: email,
+    subject: subject,
+    message: message,
+    deadline: deadline,
+    phone: `${countryCode} ${phone}`,
+    service_type: serviceType,
+    expert: expert,
+    to_email: "info@tutorforall.com"
+};
 
-            // Template parameters for auto-reply email
-            const autoReplyParams = {
-                to_email: email,
-                subject: subject,
-                service_type: serviceType,
-                deadline: deadline,
-                from_name: "TutorForAll Support"
-            };
+// Template parameters for auto-reply email
+const autoReplyParams = {
+    to_name: email.split('@')[0], // Gets the part before @ in email
+    subject: subject,
+    service_type: serviceType,
+    deadline: deadline,
+    to_email: email,  // This is important! This should be the student's email
+    from_name: "TutorForAll Support"
+};
 
-            // Send both emails
-            Promise.all([
-                // Send notification to admin
-                emailjs.send("service_hjwnn2m", "template_ncsm5yz", templateParams),
-                // Send auto-reply to user
-                emailjs.send("service_hjwnn2m", "template_9bvo7gj", autoReplyParams)
-            ])
+// Send both emails
+Promise.all([
+    // Send notification to admin
+    emailjs.send("service_hjwnn2m", "template_ncsm5yz", templateParams),
+    // Send auto-reply to student (using a different template)
+    emailjs.send("service_hjwnn2m", "template_9bvo7gj", autoReplyParams)
+])
             .then(function(responses) {
                 console.log("SUCCESS!", responses);
                 
