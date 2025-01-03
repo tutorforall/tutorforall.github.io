@@ -375,80 +375,78 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form submission handling
     const form = document.getElementById('applicationForm');
     if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitButton = form.querySelector('button[type="submit"]');
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
+       // Form submission handling
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
 
-            // Get form values
-            const email = form.querySelector('input[name="user_email"]').value;
-            const subject = form.querySelector('input[name="subject"]').value;
-            const message = form.querySelector('textarea[name="message"]').value;
-            const deadline = form.querySelector('input[name="deadline"]').value;
-            const countryCode = form.querySelector('select[name="country_code"]').value;
-            const phone = form.querySelector('input[name="phone"]').value;
-            const serviceType = document.getElementById('service_type').value;
-            const expert = form.querySelector('select[name="expert"]') ? 
-                          form.querySelector('select[name="expert"]').value : 'Not Selected';
+    // Get form values
+    const email = form.querySelector('input[name="user_email"]').value;
+    const subject = form.querySelector('input[name="subject"]').value;
+    const message = form.querySelector('textarea[name="message"]').value;
+    const deadline = form.querySelector('input[name="deadline"]').value;
+    const countryCode = form.querySelector('select[name="country_code"]').value;
+    const phone = form.querySelector('input[name="phone"]').value;
+    const serviceType = document.getElementById('service_type').value;
+    const expert = form.querySelector('select[name="expert"]') ? 
+                  form.querySelector('select[name="expert"]').value : 'Not Selected';
 
-           // Template parameters for main notification email
-const templateParams = {
-    from_name: email,
-    subject: subject,
-    message: message,
-    deadline: deadline,
-    phone: `${countryCode} ${phone}`,
-    service_type: serviceType,
-    expert: expert,
-    to_email: "info@tutorforall.com"
-};
+    // Template parameters for admin notification
+    const adminParams = {
+        from_name: email,
+        subject: subject,
+        message: message,
+        deadline: deadline,
+        phone: `${countryCode} ${phone}`,
+        service_type: serviceType,
+        expert: expert
+    };
 
-// Template parameters for auto-reply email
-const autoReplyParams = {
-    to_name: email.split('@')[0], // Gets the part before @ in email
-    subject: subject,
-    service_type: serviceType,
-    deadline: deadline,
-    to_email: email,  // This is important! This should be the student's email
-    from_name: "TutorForAll Support"
-};
+    // Template parameters for student auto-reply
+    const studentParams = {
+        to_email: email,        // Student's email
+        student_name: email.split('@')[0],  // Use part before @ as name
+        subject: subject,
+        service_type: serviceType,
+        deadline: deadline,
+        message: message
+    };
 
-// Send both emails
-Promise.all([
-    // Send notification to admin
-    emailjs.send("service_hjwnn2m", "template_ncsm5yz", templateParams),
-    // Send auto-reply to student (using a different template)
-    emailjs.send("service_hjwnn2m", "template_9bvo7gj", autoReplyParams)
-])
-            .then(function(responses) {
-                console.log("SUCCESS!", responses);
-                
-                // Show success modal
-                const successModal = document.getElementById('successModal');
-                successModal.classList.remove('hidden');
-                successModal.classList.add('flex');
-                
-                // Reset form
-                form.reset();
-                if (fileLabel) fileLabel.textContent = 'Attach Files';
-                if (fileList) fileList.innerHTML = '';
+    // Send both emails
+    Promise.all([
+        // Send notification to admin
+        emailjs.send("service_hjwnn2m", "template_ncsm5yz", adminParams),
+        // Send auto-reply to student
+        emailjs.send("service_hjwnn2m", "template_9bvo7gj", studentParams)
+    ])
+    .then(function(responses) {
+        console.log("SUCCESS!", responses);
+        
+        // Show success modal
+        const successModal = document.getElementById('successModal');
+        successModal.classList.remove('hidden');
+        successModal.classList.add('flex');
+        
+        // Reset form
+        form.reset();
+        if (fileLabel) fileLabel.textContent = 'Attach Files';
+        if (fileList) fileList.innerHTML = '';
 
-                // Reset service selection
-                selectService('assignment');
-            })
-            .catch(function(error) {
-                console.log("FAILED...", error);
-                alert('There was an error sending your message. Please try again.');
-            })
-            .finally(function() {
-                submitButton.textContent = 'ORDER NOW';
-                submitButton.disabled = false;
-            });
-        });
-    }
-
+        // Reset service selection
+        selectService('assignment');
+    })
+    .catch(function(error) {
+        console.log("FAILED...", error);
+        alert('There was an error sending your message. Please try again.');
+    })
+    .finally(function() {
+        submitButton.textContent = 'ORDER NOW';
+        submitButton.disabled = false;
+    });
+});
     // Success Modal Functions
     window.closeSuccessModal = function() {
         const modal = document.getElementById('successModal');
