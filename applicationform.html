@@ -289,31 +289,11 @@
         <span class="ml-2">Chat with us</span>
     </a>
 
-    <script>
+   <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize EmailJS
     emailjs.init("zJhxoml-9JQtMOslz");
     console.log('EmailJS initialized');
-
-    // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-button');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const isClickInsideMenu = mobileMenu.contains(e.target);
-            const isClickOnButton = mobileMenuBtn.contains(e.target);
-            
-            if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    }
 
     // Service selection functionality
     window.selectService = function(service) {
@@ -372,79 +352,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-  
-       // Form submission handling
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitButton = form.querySelector('button[type="submit"]');
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
+    // Form submission handling
+    const form = document.getElementById('applicationForm');
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            console.log('Form submitted');
 
-    // Get form values
-    const email = form.querySelector('input[name="user_email"]').value;
-    const subject = form.querySelector('input[name="subject"]').value;
-    const message = form.querySelector('textarea[name="message"]').value;
-    const deadline = form.querySelector('input[name="deadline"]').value;
-    const countryCode = form.querySelector('select[name="country_code"]').value;
-    const phone = form.querySelector('input[name="phone"]').value;
-    const serviceType = document.getElementById('service_type').value;
-    const expert = form.querySelector('select[name="expert"]') ? 
-                  form.querySelector('select[name="expert"]').value : 'Not Selected';
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
 
-    // Template parameters for admin notification
-    const adminParams = {
-        from_name: email,
-        subject: subject,
-        message: message,
-        deadline: deadline,
-        phone: `${countryCode} ${phone}`,
-        service_type: serviceType,
-        expert: expert
-    };
+            try {
+                // Send notification to admin
+                const adminResponse = await emailjs.send("service_hjwnn2m", "template_ncsm5yz", {
+                    from_name: form.querySelector('input[name="user_email"]').value,
+                    subject: form.querySelector('input[name="subject"]').value,
+                    message: form.querySelector('textarea[name="message"]').value,
+                    deadline: form.querySelector('input[name="deadline"]').value,
+                    phone: `${form.querySelector('select[name="country_code"]').value} ${form.querySelector('input[name="phone"]').value}`,
+                    service_type: document.getElementById('service_type').value,
+                    expert: form.querySelector('select[name="expert"]')?.value || 'Not Selected'
+                });
+                console.log('Admin email sent:', adminResponse);
 
-    // Template parameters for student auto-reply
-    const studentParams = {
-        to_email: email,        // Student's email
-        student_name: email.split('@')[0],  // Use part before @ as name
-        subject: subject,
-        service_type: serviceType,
-        deadline: deadline,
-        message: message
-    };
+                // Send auto-reply to student
+                const studentResponse = await emailjs.send("service_hjwnn2m", "template_9bvo7gj", {
+                    to_email: form.querySelector('input[name="user_email"]').value,
+                    student_name: form.querySelector('input[name="user_email"]').value.split('@')[0],
+                    subject: form.querySelector('input[name="subject"]').value,
+                    service_type: document.getElementById('service_type').value,
+                    deadline: form.querySelector('input[name="deadline"]').value,
+                    message: form.querySelector('textarea[name="message"]').value
+                });
+                console.log('Student email sent:', studentResponse);
 
-    // Send both emails
-    Promise.all([
-        // Send notification to admin
-        emailjs.send("service_hjwnn2m", "template_ncsm5yz", adminParams),
-        // Send auto-reply to student
-        emailjs.send("service_hjwnn2m", "template_9bvo7gj", studentParams)
-    ])
-    .then(function(responses) {
-        console.log("SUCCESS!", responses);
-        
-        // Show success modal
-        const successModal = document.getElementById('successModal');
-        successModal.classList.remove('hidden');
-        successModal.classList.add('flex');
-        
-        // Reset form
-        form.reset();
-        if (fileLabel) fileLabel.textContent = 'Attach Files';
-        if (fileList) fileList.innerHTML = '';
+                // Show success modal
+                const successModal = document.getElementById('successModal');
+                successModal.classList.remove('hidden');
+                successModal.classList.add('flex');
 
-        // Reset service selection
-        selectService('assignment');
-    })
-    .catch(function(error) {
-        console.log("FAILED...", error);
-        alert('There was an error sending your message. Please try again.');
-    })
-    .finally(function() {
-        submitButton.textContent = 'ORDER NOW';
-        submitButton.disabled = false;
-    });
-});
+                // Reset form
+                form.reset();
+                if (fileLabel) fileLabel.textContent = 'Attach Files';
+                if (fileList) fileList.innerHTML = '';
+                selectService('assignment');
+
+            } catch (error) {
+                console.error('Error sending emails:', error);
+                alert('There was an error sending your message. Please try again.');
+            } finally {
+                submitButton.textContent = 'ORDER NOW';
+                submitButton.disabled = false;
+            }
+        });
+    }
+
     // Success Modal Functions
     window.closeSuccessModal = function() {
         const modal = document.getElementById('successModal');
@@ -468,15 +431,8 @@ form.addEventListener('submit', function(e) {
             closeSuccessModal();
         }
     });
-
-    // WhatsApp button functionality (if needed)
-    const whatsappButton = document.querySelector('.whatsapp-button');
-    if (whatsappButton) {
-        whatsappButton.addEventListener('click', function(e) {
-            window.open('https://wa.me/919680212751', '_blank');
-        });
-    }
 });
+
 </script>
 
     
